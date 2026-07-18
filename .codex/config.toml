@@ -1,0 +1,4 @@
+# Project-scoped Codex configuration. Loaded only when this repository is trusted.
+# Keep model, provider, credentials, telemetry, and personal approval preferences
+# in the user-level config instead of this shared repository.
+project_doc_max_bytes = 32768

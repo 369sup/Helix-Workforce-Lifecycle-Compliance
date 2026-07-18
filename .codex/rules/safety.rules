@@ -1,0 +1,55 @@
+# Project command policy. Rules are an experimental Codex feature.
+
+prefix_rule(
+    pattern = ["git", "reset", "--hard"],
+    decision = "forbidden",
+    justification = "Preserve user work; use a scoped, recoverable alternative after inspecting git status and diff.",
+    match = ["git reset --hard", "git reset --hard HEAD"],
+    not_match = ["git reset --soft HEAD~1"],
+)
+
+prefix_rule(
+    pattern = ["git", "clean"],
+    decision = "forbidden",
+    justification = "Do not delete untracked project files; inspect and remove only explicit approved targets.",
+    match = ["git clean -fd", "git clean -xdf"],
+    not_match = ["git status --short"],
+)
+
+prefix_rule(
+    pattern = ["git", "push"],
+    decision = "prompt",
+    justification = "Pushing changes affects a remote repository and requires explicit user authorization.",
+    match = ["git push", "git push origin main", "git push --force"],
+    not_match = ["git status --short"],
+)
+
+prefix_rule(
+    pattern = ["rm", "-rf"],
+    decision = "prompt",
+    justification = "Recursive deletion requires an explicit, verified target and user authorization.",
+    match = ["rm -rf build", "rm -rf ./tmp"],
+    not_match = ["rm file.md"],
+)
+
+prefix_rule(
+    pattern = ["codex", "plugin", ["add", "remove"]],
+    decision = "prompt",
+    justification = "Plugin installation changes user-level Codex state; confirm the exact plugin and marketplace first.",
+    match = [
+        "codex plugin add taiwan-compliance-governance@personal",
+        "codex plugin remove taiwan-compliance-governance@personal",
+    ],
+    not_match = ["codex plugin list"],
+)
+
+prefix_rule(
+    pattern = ["codex", "plugin", "marketplace", ["add", "remove"]],
+    decision = "prompt",
+    justification = "Marketplace changes persist in user-level Codex state; confirm the exact source or marketplace first.",
+    match = [
+        "codex plugin marketplace add .",
+        "codex plugin marketplace remove personal",
+    ],
+    not_match = ["codex plugin marketplace list"],
+)
