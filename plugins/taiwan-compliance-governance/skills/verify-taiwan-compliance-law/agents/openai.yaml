@@ -1,4 +1,4 @@
 interface:
   display_name: "Verify Taiwan Compliance Law"
   short_description: "Verify Taiwan legal sources and effective status"
-  default_prompt: "Use $verify-taiwan-compliance-law to verify the legal basis and effective status for this compliance module."
+  default_prompt: "Use $verify-taiwan-compliance-law to verify the legal basis and effective status for this workforce lifecycle or compliance-governance question."

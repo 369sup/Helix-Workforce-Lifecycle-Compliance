@@ -1,21 +1,20 @@
 {
   "name": "taiwan-compliance-governance",
-  "version": "0.2.3",
-  "description": "Verify Taiwan legal sources and draft evidence-linked D00-D12 compliance modules.",
+  "version": "0.3.0",
+  "description": "Verify official Taiwan legal sources for workforce lifecycle and compliance governance.",
   "author": {
     "name": "Compliance & Code of Ethics project"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Taiwan Compliance Governance",
-    "shortDescription": "Taiwan legal verification and compliance drafting.",
-    "longDescription": "Separates official Taiwan legal verification from drafting D00-D12 domain modules with Core, Role-Based, and Conditional applicability for electromechanical and lifting work.",
+    "shortDescription": "Taiwan legal verification for lifecycle governance.",
+    "longDescription": "Verifies official Taiwan legal sources and produces evidence-ready records for workforce lifecycle and compliance governance in electromechanical and lifting work.",
     "developerName": "Compliance & Code of Ethics project",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
     "defaultPrompt": [
-      "Verify the Taiwan legal basis for the next compliance module.",
-      "Draft one approved D00-D12 domain compliance module from verified evidence."
+      "Verify the Taiwan legal basis for the next workforce lifecycle question."
     ]
   }
 }

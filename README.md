@@ -1,300 +1,148 @@
-# Modular Compliance & Code of Conduct
+# Workforce Lifecycle Compliance & Code of Conduct
 
-> 狀態：文件架構草案（Draft）
+> 狀態：生命週期架構草案（Draft）
 > 法域：臺灣地區
 > 產業：機電工程、起重工程
-> 法規基準日：2026-07-18
-> 架構決策：D00–D12 Domain-first，Core／Role-Based／Conditional 為適用維度
+> 法規查證基準日：2026-07-20
+> 架構決策：Workforce Lifecycle-first；職能控制 taxonomy 待後續重新設計
 
 > [!IMPORTANT]
-> 本專案建立治理與文件架構，不是法律意見，也不代表公司已完成法令遵循。正式上線前仍須依公司人數、承攬層級、工程規模、設備容量、作業內容及所在地，由臺灣律師與合格職業安全衛生專業人員完成適用性確認。
+> 本專案建立職員與其他工作者生命週期的治理、文件模型及候選文件清單，不是法律意見，也不代表公司已完成法令遵循。正式使用前仍須依實際法律關係、公司人數、工程與承攬身分、工作內容及所在地完成個案審查。
 
 ## 1. 專案目標
 
-建立一套可長期維護的 Compliance & Code of Conduct 文件系統，使每項規範同時具備：
+建立一套可長期維護的 workforce lifecycle 文件治理系統，使每個人員或合作關係都能回答：
 
-- 穩定的控制領域（Domain）；
-- 唯一主要責任人（Primary Owner）；
-- 可判定的適用方式；
-- 可追溯的法律、程序與紀錄證據；
-- 清楚的啟用、終止、撤銷及版本狀態。
+- 目前是何種法律或合作關係；
+- 位於生命週期的哪個階段；
+- 何時、依何證據進入或離開該階段；
+- 哪些決定、文件、權限、資產與紀錄必須建立或撤銷；
+- 哪些法律結論已確認、仍待查證或必須個案審查。
 
-實體文件依 D00–D12 控制領域組織，不再依 Core、Role-Based、Conditional 分成三套目錄。三者保留為每個模組的 applicability metadata。
+本 repo 只保存治理文件、空白欄位與資料結構。履歷、身分資料、薪資、評核、申訴及其他具名紀錄必須保存於經授權的受控系統，不得提交至 Git。
 
 ## 2. 架構模型
 
-每位人員在特定時間與工作情境下的適用規範為：
+同一人在特定時間的文件與控制需求由四項事實共同決定：
 
 ```text
-個人適用規範 = D00–D12 中所有目前有效的 Core rules
-             + 所有符合職務或資格的 Role-Based rules
-             + 所有目前有效的 Conditional rules
-             + 適用的工地、業主及契約 Addenda
+適用文件與控制 = 關係性質
+               + 目前 LC 階段
+               + 當下發生的跨階段事件
+               + 職務、資格、權限、設備、任務及場所條件
 ```
 
-### 2.1 第一軸：Domain
+- **關係性質**回答雙方的實際法律與合作關係。
+- **LC 階段**回答該關係位於需求、招募、到職、試用、在職、離場或離職後的哪個位置。
+- **跨階段事件**處理績效、獎懲、申訴、事故、休假、調職、升遷及關係轉換等非每人必經事項。
+- **職能與作業條件**未在本輪分配永久 taxonomy；後續必須從到職、取得權限或開始任務時啟用，不能延後至轉正。
 
-Domain 表示穩定的控制目的與主要責任邊界。正式 taxonomy 固定為 D00–D12，詳見 [Domain Matrix](docs/governance/domain-matrix.md)。
+完整定義、轉換及候選文件以 [Workforce Lifecycle Model](docs/governance/workforce-lifecycle-model.md) 為唯一來源。
 
-### 2.2 第二軸：Applicability
+## 3. LC00–LC10 摘要
 
-| 類型 | 判定問題 | 最低要求 |
+| ID | 階段 | 主要邊界 |
 | --- | --- | --- |
-| Core | 哪些規範對指定人口持續適用？ | 明確人口、開始適用方式及版本 |
-| Role-Based | 誰因職務、責任、資格或持續權限承擔附加義務？ | 角色／資格依據、交接及撤銷規則 |
-| Conditional | 何時、何地或因何種任務、資產、契約或權限啟用？ | 可稽核的 trigger、開始、終止、撤銷及證據 |
-| Local Addendum | 哪些工地、業主、契約或所在地要求疊加適用？ | 適用範圍、有效期間、衝突處理及核准人 |
+| LC00 | 用人／用工需求與核准 | 需求、預算、職位或合作性質及核准 |
+| LC01 | 招募、申請與甄選 | 候選資料、資格條件、評選與未錄取結案 |
+| LC02 | 錄取通知／合作提案 | Offer Letter、合作提案、接受、拒絕、撤回或失效 |
+| LC03 | 預到職／進場前條件 | 身分、資格及開始條件的確認 |
+| LC04 | 到職／開始合作與 Onboarding | 從約定開始日建立實際關係、權限、資產與基本義務 |
+| LC05 | 試用／初期合作評估 | 員工試用或非僱傭人員初期評估；可跳過 |
+| LC06 | 穩定在職／持續合作 | 日常任用、發展、訓練及持續管理 |
+| LC07 | 異動、暫停與關係轉換 | 調職、升遷、薪資／地點變更、留停及性質重分類 |
+| LC08 | 離職／終止的啟動與決定 | 申請、通知、法律依據、審查與生效決定 |
+| LC09 | Offboarding、結清與撤權 | 交接、薪資或費用結清、財物返還、權限撤銷 |
+| LC10 | 離職後義務與再聘／再合作 | 保存、保密、證明、再聘資格；再聘建立新實例 |
 
-同一模組只能有一個 Primary Domain，但可以包含多筆 applicability rule；例如同時以 Role-Based rule 指派持續責任，再以 Conditional rule 啟用特定任務控制。
+## 4. 關係性質
 
-### 2.3 Applicability Rule 計算
+第一版候選關係包括：
 
-- 每筆 rule 在模組內使用永久且不重複的 `AR-nnn` Rule ID。
-- 同一 rule 內的 selectors 預設採 `all`（AND）；需要任一條件成立時必須明確標記 `match: any`。
-- 不同 rules 預設採 `any`（OR）判定模組是否適用。
-- 每筆 rule 必須以 `applies_to` 綁定 Requirement IDs；不可只啟用整份文件而無法辨識義務範圍。
-- 同時命中多筆 rules 時，適用義務為各 rule 所指 Requirement IDs 的聯集，不能用其中一筆 rule 排除另一筆已成立的義務。
-- 稽核與人員指派紀錄使用 `Module ID + Rule ID`，例如 `D07-M001#AR-002`。
+- 直聘不定期受僱；
+- 直聘定期受僱；
+- 部分工時受僱；
+- 派遣勞工；
+- 承攬商或再承攬商所僱人員；
+- 獨立承攬人或顧問；
+- 實習、見習或訓練人員。
 
-## 3. 不變設計原則
+上述名稱不是法律結論。是否屬勞動契約、派遣或承攬，必須依實際從屬性、指揮監督及整體履行事實判斷，不受契約標題拘束。實習或訓練安排也必須先確認其實質關係。
 
-- **Domain-first**：D00–D12 是實體架構；Applicability 是指派維度。
-- **單一主要責任**：每份模組只屬於一個 Primary Domain，跨域內容以引用處理。
-- **共同標準不得降低**：Role-Based、Conditional 與 Addendum 只能增加或具體化義務。
-- **適用性可驗證**：非持續適用的模組必須有可觀察的觸發與終止證據。
-- **規範與程序分離**：模組規定必須／禁止什麼；程序規定由誰、何時及如何執行。
-- **法律與政策選擇分離**：每項結論標示為依法必須、公司政策選擇或個案待法律審查。
-- **人員規範與作業控制分離**：Code of Conduct 不取代工作規則、施工計畫、危害告知、法定訓練、資格、設備檢查或作業許可。
-- **現行與未生效法規分離**：法規台帳分別記錄公布日、施行日、過渡期與查證日。
-- **ID 不承載易變語意**：Module ID 不編入角色名稱或 Core／Role／Conditional 類型。
-- **避免空架構**：只有核准模組時才建立 Domain 子目錄或文件。
+「試用」是受僱後的生命週期狀態，不是獨立關係性質。非僱傭人員如有初期評估，應使用符合其實際關係的名稱與文件，不得直接套用員工試用或轉正文件。
 
-## 4. D00–D12 Domain 摘要
+## 5. 不變條件
 
-| ID | Domain | 主要控制目的 |
-| --- | --- | --- |
-| D00 | 全員倫理與行為基準 | 誠信、尊重、安全底線、基本保密、通報及禁止報復 |
-| D01 | 公司治理、法務與行政控制 | 授權、印鑑、公司紀錄、許可證照、法律事務及調查治理 |
-| D02 | 人力與職場 | 招募、僱用、勞動條件、平等就業、職場行為、申訴及員工資料 |
-| D03 | 財務、會計與稅務 | 帳務、資金、收付款、費用、稅務及職務分離 |
-| D04 | 商務、客戶與市場行為 | 報價、投標、銷售、客戶承諾、競爭行為、佣金及招待 |
-| D05 | 專案與工程交付 | 設計、估算、施工方法、工程變更、技術決策及專案交付 |
-| D06 | 品質與技術完整性 | 檢驗、測試、校正、不符合事項、驗收及技術證據 |
-| D07 | 職業安全衛生與環境 | 危害控制、承攬安全、作業許可、事故、健康、污染及廢棄物 |
-| D08 | 採購、供應商與承攬治理 | 採購、第三方遴選、盡職調查、議價、契約及供應鏈誠信 |
-| D09 | 物料、倉儲與物流 | 收發料、庫存、保管、盤點、追溯、搬運及運輸交接 |
-| D10 | 設備、機具與車隊 | 起重設備、施工機具、工具及車輛的檢查、維護與生命週期 |
-| D11 | 資訊、隱私與資安 | 系統權限、個資、營業秘密、資料生命週期及資安事件 |
-| D12 | AI、自動化與演算法決策 | AI 准用、資料輸入、人工覆核、自動化決策及特殊權限 |
+- LC ID 表示穩定生命週期階段，不表示職稱、部門或個別人員。
+- `LC04 → LC05` 只有在事前存在試用或初期評估安排時才發生；否則由 LC04 直接進入 LC06。
+- 試用延長留在 LC05，必須保存雙方合意與有效日期證據。
+- 試用未通過或初期評估不繼續，不得直接把關係標記為結束；必須依序經 LC08 與 LC09。
+- 離職、終止或合作結束的法律依據、程序及結果不得由狀態機自動決定。
+- 離職後再聘或再合作建立新的 lifecycle instance，不倒轉原紀錄。
+- 每次階段轉換都必須保存事件、有效日期、發起人、核准人及證據引用。
+- 法律與公司政策選擇分離；未確認的門檻、身分或法律效果標記 `待驗證`。
+- 文件簽收不能取代法定協商、同意、訓練、資格、檢查、許可或現場控制。
 
-Domain 的完整責任、排除事項、跨域規則與初始控制矩陣，以 [Domain Matrix](docs/governance/domain-matrix.md) 為準。
+## 6. 文件治理
 
-## 5. 目標文件架構
+### 6.1 文件狀態
 
-下列是按需建立的目標結構，不代表所有檔案已存在：
+```text
+Candidate → Draft → In Review → Approved → Effective → Superseded / Retired
+```
+
+本輪候選文件全部維持 `Candidate`，不分配永久文件 ID，也不視為已核准模板。
+
+### 6.2 法規證據
+
+法律結論集中在 [Taiwan Legal Register](docs/governance/taiwan-legal-register.md)，每項獨立要求分列證據紀錄並標示：
+
+- `依法必須`；
+- `公司政策選擇`；
+- `個案待法律審查`。
+
+官方 guidance 與 FAQ 必須標明其性質，不得寫成法條。公布日、施行日、過渡期與查證日分別記錄。
+
+### 6.3 優先順序
+
+1. 適用法律與主管機關要求；
+2. 合法有效的僱傭契約、個別協議、工作規則或團體協約；
+3. 工地、業主、契約及所在地要求；
+4. 經核准且已生效的公司政策與程序；
+5. 無法判定時停止受影響的決定或作業，交由具權責者與專業人員書面確認。
+
+## 7. Repository 結構
 
 ```text
 .
 ├── README.md
 ├── AGENTS.md
 ├── docs/
-│   ├── governance/
-│   │   ├── domain-matrix.md
-│   │   ├── document-governance.md
-│   │   ├── applicability-rules.md
-│   │   ├── taiwan-legal-register.md
-│   │   ├── definitions.md
-│   │   └── change-log.md
-│   ├── domains/
-│   │   ├── D00-all/
-│   │   ├── D01-governance/
-│   │   ├── D02-people/
-│   │   ├── D03-finance/
-│   │   ├── D04-commercial/
-│   │   ├── D05-engineering-projects/
-│   │   ├── D06-quality/
-│   │   ├── D07-hse/
-│   │   ├── D08-procurement/
-│   │   ├── D09-warehouse-logistics/
-│   │   ├── D10-equipment-fleet/
-│   │   ├── D11-information-data/
-│   │   └── D12-ai-automation/
-│   ├── addenda/
-│   └── registers/
-└── templates/
+│   └── governance/
+│       ├── workforce-lifecycle-model.md
+│       └── taiwan-legal-register.md
+└── plugins/
+    └── taiwan-compliance-governance/
 ```
 
-每個 Domain 只有在需要時才建立下列內容：
+實際模板核准前不建立空的生命週期子目錄。未來若建立表單、通知、協議或 register，只保存空白格式與欄位定義。
 
-```text
-README.md       # Domain 邊界、Owner、模組索引
-coe.md          # 穩定的 Domain Code of Ethics & Conduct
-modules/        # 單一責任模組
-procedures/     # 執行程序與工作指引
-forms/          # 表單或該 Domain 專用紀錄格式
-```
+## 8. 待確認事項
 
-跨 Domain 的人員指派、訓練、資格、設備、例外及版本紀錄放在 `docs/registers/`；具名員工資料原則上只保存格式與欄位定義，實際資料應置於受控系統。
+1. 各事業單位、工作地點、員工人數及實際適用法規。
+2. 實際使用的不定期、定期、部分工時、派遣、承攬、顧問及實習安排。
+3. Offer Letter 內容、接受方式、先決條件及其個案法律效果。
+4. 試用期間、目標、評核程序、延長與終止審查流程。
+5. Owner、Approver、法務、人資、職安衛、資訊及現場權責分工。
+6. 個資告知、保存期限、存取權限及受控 HR 系統。
+7. 薪資、出勤、保險、退休金、職災、休假及離職結清的適用性證據。
+8. 職能、資格、權限、設備、任務及場所控制 taxonomy。
 
-## 6. Module ID 與 Metadata
+## 9. 建議建置順序
 
-Domain ID 永久固定。模組核准建立時依該 Domain 發給流水號：
-
-```text
-D07-M001
-D07-M002
-D10-M001
-```
-
-Core／Role-Based／Conditional 不寫入 ID，而記錄在 metadata：
-
-```yaml
-module_id: D07-M001
-primary_domain: D07
-title: Lifting Operation Safety
-applicability:
-  combine: any
-  rules:
-    - rule_id: AR-001
-      type: role-based
-      match: all
-      roles:
-        - lifting-supervisor
-      applies_to:
-        - REQ-001
-        - REQ-002
-      assignment_evidence: supervisor-appointment
-      handover_evidence: signed-handover-record
-      revocation_evidence: role-revocation-record
-    - rule_id: AR-002
-      type: conditional
-      match: all
-      roles:
-        - rigger-signaler
-      triggers:
-        - approved-lifting-operation
-      applies_to:
-        - REQ-003
-        - REQ-004
-      trigger_evidence: approved-lift-permit
-      effective_from: assigned-task-start
-      end_conditions:
-        - lifting-operation-completed
-      revocation_conditions:
-        - lift-permit-revoked
-      end_evidence: lift-permit-closeout
-status: draft
-```
-
-同一流水號不得重複使用。模組退役後保留 tombstone 與替代文件，不回收 ID。
-
-## 7. 每份模組的標準結構
-
-```markdown
-# [Module ID] [Module Name]
-
-## Document Control
-- Primary Domain:
-- Applicability Rules:
-- Status:
-- Owner:
-- Approver:
-- Version:
-- Effective Date:
-- Next Review Date:
-
-## Purpose and Responsibility Boundary
-## Scope, Audience and Exclusions
-## Definitions
-## Applicability Rules and Requirement Mapping
-## Trigger Conditions
-## End and Revocation Conditions
-## Requirements
-## Prohibited Conduct
-## Required Disclosures and Approvals
-## Qualifications, Training and Inspection
-## Records and Evidence
-## Reporting, Escalation and Stop-Work Authority
-## Exceptions
-## Consequences of Non-Compliance
-## Related Domains, Modules and Procedures
-## Legal Evidence IDs
-## Local Addenda
-## Revision History
-```
-
-不適用的段落須標記 `不適用` 並說明原因；不得靜默刪除安全、資格、紀錄或申訴相關段落。
-
-## 8. 文件治理與優先順序
-
-### 8.1 文件狀態
-
-```text
-Draft → In Review → Approved → Effective → Superseded / Retired
-```
-
-只有 `Effective` 版本可作為正式適用規範；舊版本必須保留但不得與現行版本混淆。
-
-### 8.2 衝突處理
-
-原則上依下列順序處理：
-
-1. 適用法律與主管機關要求；
-2. 合法有效的僱傭契約、個別協議、工作規則或團體協約；
-3. 工地、業主及契約 Addendum；
-4. 採取較高安全或合規標準的 Domain 模組；
-5. 無法判定時，停止受影響作業並交由法務／Compliance 與職安衛權責人書面判定。
-
-上述優先順序仍須依實際法律關係個案確認，不能由本架構自動決定。
-
-### 8.3 最低控制要求
-
-- 每份文件有唯一 ID、Primary Domain、Owner、版本與狀態。
-- 新進、轉調、升任、資格、資產、權限或作業情境改變時，重新計算適用模組。
-- Conditional rule 保留開始日、終止日、撤銷及 trigger evidence。
-- 法定資格、訓練、設備檢查及作業許可不得由閱讀或簽收取代。
-- 有立即危險時適用停止作業與退避，不得由工期、成本或主管指示覆蓋。
-- 例外必須限時、有理由、有風險評估及核准人；強制法規與禁止報復事項不得設例外。
-
-## 9. Applicability Register 最低欄位
-
-| 欄位 | 說明 |
-| --- | --- |
-| Person / Population | 個人或適用群組 |
-| Module ID | Dxx-Mnnn |
-| Applicability Rule ID | `AR-nnn`；與 Module ID 組成可稽核鍵值 |
-| Primary Domain | D00–D12 |
-| Applicability Rule Type | Core、Role-Based、Conditional 或 Local Addendum |
-| Applied Requirement IDs | 該次匹配實際啟用的 Requirement IDs |
-| Assignment Basis | 職務、資格、核准、契約、資產、權限或地點 |
-| Trigger Evidence | 可驗證的指派或啟用證據 |
-| Effective Date | 開始適用日 |
-| End / Revocation Date | 終止或撤銷日 |
-| Acknowledgement / Training | 簽收、訓練或測驗要求 |
-| Record Owner | 紀錄保管責任人 |
-| Status | Pending、Active、Expired 或 Revoked |
-
-## 10. 待確認事項
-
-正式撰寫政策內容前，仍須確認：
-
-1. 公司及各事業單位人數與適用門檻。
-2. 公司在各工程中的業主、承攬、再承攬或設備出租／出借身分。
-3. 工程類型、規模、設備種類、容量及法規過渡期。
-4. 適用人口是否包含董事、派遣、實習生、外籍工作者、顧問及承攬商人員。
-5. Domain Owner、Approver、職安衛組織及文件發布流程。
-6. 實際職務、法定資格、特殊權限及設備清冊。
-7. 哪些模組需要個別契約、同意、作業許可或現場文件，而非政策告知。
-8. 通報、調查、個資保存、訓練及指派紀錄系統。
-9. 文件語言及不同語言版本的優先效力。
-10. 懲戒與解僱如何依法納入工作規則、契約或團體協約並完成程序。
-
-## 11. 建議建置順序
-
-1. 核准 [D00–D12 Domain Matrix](docs/governance/domain-matrix.md) 與 Owner。
-2. 建立臺灣法規台帳，將每項 evidence 映射到 Primary Domain。
-3. 核准 D00 全員共同準則的責任邊界。
-4. 依風險選擇一個 Domain，核准第一個最小模組。
-5. 建立 applicability rule、指派紀錄、簽收及訓練規則。
-6. 逐一完成法律與職安專業審查、核准及發布。
-7. 以新進、轉調、工地進場、吊裝、設備交付及權限撤銷事件測試適用性。
+1. 核准 LC00–LC10 的階段、轉換與關係分支。
+2. 逐一查證候選文件涉及的臺灣法律要求與適用門檻。
+3. 指定每個階段與文件的 Owner、Approver 及紀錄系統。
+4. 從 LC02–LC05 選擇最小垂直切片，起草 Offer、到職、試用及評核文件。
+5. 以拒絕 Offer、無試用、試用延長、試用未通過、派遣、承攬、留停、異動、離職撤回及再聘案例驗證流程。
+6. 生命週期核准後，再以實際職能與作業風險重新設計控制 taxonomy。

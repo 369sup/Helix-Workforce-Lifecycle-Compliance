@@ -1,37 +1,37 @@
 # Current Work State
 
-Checkpoint: 2026-07-20
+## Checkpoint
 
-Completed:
-- Git repository is initialized on `main` and published to the folder-derived GitHub repository `369sup/Compliance-Code-of-Ethics`.
-- Codex Desktop restart completed; `taiwan-compliance-governance@personal` version 0.2.3 is installed and enabled.
-- Direct invocation smoke tests loaded both `verify-taiwan-compliance-law` and `draft-compliance-module` from the refreshed plugin.
-- Refactored the documentation architecture to the immutable D00-D12 control-domain taxonomy.
-- `docs/governance/domain-matrix.md` is the canonical source for Domain definitions, responsibility boundaries, the initial control matrix, cross-domain boundaries, and Module ID rules.
-- `README.md` presents Domain-first physical organization and applicability rules as a separate assignment dimension.
-- A module has exactly one Primary Domain and may contain multiple applicability rules with `AR-nnn` IDs.
-- Rule selectors default to AND, separate rules default to OR for module applicability, and matched Requirement IDs are additive.
-- Module IDs use `Dxx-Mnnn`, remain `pending` until the responsibility boundary is approved, and do not encode mutable facts.
-- `AGENTS.md`, Serena `core` and `conventions`, and the `draft-compliance-module` skill are aligned with the current architecture.
-- Both skills and the plugin passed the official validators with `PYTHONUTF8=1`; JSON/TOML parsed; execpolicy samples matched their intended decisions; staged whitespace checks passed.
-- Repository text is normalized to LF through `.gitattributes`.
-- The GitHub repository is private because the draft contains governance material that has not completed legal applicability review.
-- On 2026-07-20, the requested root development scaffold was completed: `tools`, `.agents`, `.codex`, `.github`, `.idea`, `.serena`, `docs`, `fixtures`, `infra`, `plugins`, `scripts`, and `tests` all exist.
-- Six tracked-placeholder README files define the boundaries for `.github`, `tools`, `fixtures`, `infra`, `scripts`, and `tests`; no unverified framework, CI workflow, deployment platform, or test runner was introduced.
-- Git Bash directory/file checks, final-newline checks, trailing-whitespace scans, and `git diff --check` passed; the six README files remain untracked pending explicit commit authorization.
+- Date: 2026-07-20.
+- Branch: `main`; lifecycle-first rearchitecture is present as uncommitted working-tree changes.
+- Canonical governance is now `docs/governance/workforce-lifecycle-model.md` with LC00–LC10, relationship branches, transition rules, cross-stage events, scenario expectations, and a candidate-document inventory.
+- `docs/governance/taiwan-legal-register.md` contains eight verified evidence records for trial arrangements and rights, agreed extension, seniority, trial-period termination, substantive labor-contract classification, dispatch relationships, and dispatch-versus-contracting identification.
+- The superseded control-domain matrix and its drafting skill were removed. `README.md`, `AGENTS.md`, tests guidance, the legal-verification skill, and plugin metadata now use lifecycle-first terminology.
+- Repository plugin source is version 0.3.0. The already installed 0.2.3 cache was intentionally not overwritten; using the new source requires a later plugin reinstall or refresh and a Codex restart.
 
-Validation limitation:
-- Serena project activation and memory operations succeeded, but JetBrains inspections were unavailable because no Serena service was running in a JetBrains IDE. Do not claim Serena diagnostics were completed.
+## Validation Completed
 
-Not yet completed:
-- `docs/governance/taiwan-legal-register.md` and detailed legal applicability review.
-- Domain Owner and Approver assignments.
-- Any approved `Dxx-Mnnn` policy module.
-- Operational implementation, training, inspection, site validation, or a legal-compliance determination.
+- Lifecycle checks passed for 11 unique stages, 23 allowed-transition rows, eight verified evidence records, and 13 required scenario assertions.
+- All stage rows have entry evidence, exit evidence, allowed-next values, Owner, and Approver.
+- Relative Markdown links and trailing whitespace checks passed for the canonical documents.
+- The remaining legal-verification skill passed quick validation.
+- The source plugin passed plugin validation.
+- `git diff --check` exited successfully; line-ending conversion warnings remain informational for several pre-existing CRLF working-copy paths.
 
-Next smallest slice:
-1. Build the Taiwan legal register and map each independent evidence row to one Primary Domain.
-2. Approve D00 responsibility boundaries before allocating the first Module ID.
-3. Use verified legal evidence before drafting the first module.
+## Boundaries and Risks
 
-Do not claim that the policy set or company is legally compliant; architecture and authoring controls do not prove operational implementation.
+- Every listed document remains `Candidate`; no permanent document IDs or production templates were created.
+- The repository contains no named workforce records.
+- Offer Letter effects, fixed-term and part-time rules, internship classification, personal-data handling, operational onboarding duties, transfers, leave, termination, closeout, and post-employment duties still require focused legal evidence.
+- Owner and Approver values are role placeholders, not named assignments.
+- Functional, qualification, authority, equipment, task, and site-control taxonomy remains deferred until lifecycle approval.
+- This model does not establish that any company, document, process, or individual case complies with Taiwan law.
+
+## Next Smallest Slice
+
+1. Review and approve the LC00–LC10 model, transition rules, relationship branches, and role placeholders.
+2. Select LC02–LC05 as the first vertical slice only after its pending legal questions and actual relationship variants are confirmed.
+3. Draft specific Offer, pre-start, onboarding, and trial artifacts one at a time from verified evidence.
+4. Design functional and operational controls later, activating them from actual start, authority, or task assignment rather than confirmation after trial.
+
+Supporting memories: `mem:core` and `mem:conventions`.

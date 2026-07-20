@@ -1,4 +1,0 @@
-interface:
-  display_name: "Draft Compliance Module"
-  short_description: "Draft evidence-linked D00-D12 compliance modules"
-  default_prompt: "Use $draft-compliance-module to draft the next approved D00-D12 domain module with verified applicability."

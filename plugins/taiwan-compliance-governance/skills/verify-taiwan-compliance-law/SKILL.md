@@ -24,7 +24,7 @@ Answer one narrow legal question at a time and turn verified official sources in
 
 For every legal requirement, capture:
 
-- topic and proposed module ID;
+- topic, related lifecycle stage(s), and candidate document or control;
 - official law or regulation title and article;
 - concise requirement stated in original wording, without adding unsupported obligations;
 - applicability trigger and evidence needed to prove whether it applies;
