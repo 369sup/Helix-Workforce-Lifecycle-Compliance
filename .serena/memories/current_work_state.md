@@ -1,6 +1,6 @@
 # Current Work State
 
-Checkpoint: 2026-07-18
+Checkpoint: 2026-07-20
 
 Completed:
 - Git repository is initialized on `main` and published to the folder-derived GitHub repository `369sup/Compliance-Code-of-Ethics`.
@@ -16,6 +16,9 @@ Completed:
 - Both skills and the plugin passed the official validators with `PYTHONUTF8=1`; JSON/TOML parsed; execpolicy samples matched their intended decisions; staged whitespace checks passed.
 - Repository text is normalized to LF through `.gitattributes`.
 - The GitHub repository is private because the draft contains governance material that has not completed legal applicability review.
+- On 2026-07-20, the requested root development scaffold was completed: `tools`, `.agents`, `.codex`, `.github`, `.idea`, `.serena`, `docs`, `fixtures`, `infra`, `plugins`, `scripts`, and `tests` all exist.
+- Six tracked-placeholder README files define the boundaries for `.github`, `tools`, `fixtures`, `infra`, `scripts`, and `tests`; no unverified framework, CI workflow, deployment platform, or test runner was introduced.
+- Git Bash directory/file checks, final-newline checks, trailing-whitespace scans, and `git diff --check` passed; the six README files remain untracked pending explicit commit authorization.
 
 Validation limitation:
 - Serena project activation and memory operations succeeded, but JetBrains inspections were unavailable because no Serena service was running in a JetBrains IDE. Do not claim Serena diagnostics were completed.
