@@ -21,4 +21,4 @@
 - 專案長工時、單一主管偏好或客戶喜好不得作為唯一晉升標準。
 - 輸出為校準結果、個別決定、通知／協議與各自生效日。
 
-Legal routing：[WAGE／TRANSFER／DATA／COMPLAINT](../../governance/taiwan-legal-register.md)。
+Legal routing：[WAGE／TRANSFER／INS／NHI／PENSION／DATA／COMPLAINT](../../governance/taiwan-legal-register.md)。

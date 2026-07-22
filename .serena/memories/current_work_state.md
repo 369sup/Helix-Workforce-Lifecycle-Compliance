@@ -3,6 +3,7 @@
 ## Checkpoint
 
 - Date: 2026-07-23.
+- Project: `Helix-Workforce-Lifecycle-Compliance`; GitHub `369sup/Helix-Workforce-Lifecycle-Compliance`; target root `D:\\GitHub\\Helix-Workforce-Lifecycle-Compliance`.
 - Branch: `main`; the complete HLC documentation tree is ready for commit and direct push.
 - The repository presents one clean HLC architecture only. No alternate lifecycle naming or architecture-history narrative remains in project documentation or Serena memories.
 - Canonical model: HLC00–HLC02 entry modules, concurrent/reentrant HLC03–HLC12 modules, HLC13 voluntary resignation, and HLC14 employer termination, retirement, shared closeout, and post-employment obligations.
@@ -21,14 +22,14 @@
 - `workforce-lifecycle-model.md`: HLC modules, relationship state, assignment, overlay, case, work item, temporal fields, and scenario contract.
 - `workforce-lifecycle-gap-analysis.md`: 37 unique gaps with decision, evidence, priority, and status.
 - `helix-workforce-document-catalog.md`: 71 Candidate artifacts with HLC, population, type, signature mode, roles, evidence, legal status, and template status.
-- `taiwan-workforce-law-catalog.md`: 45 official-source law routes plus company/project selector model.
+- `taiwan-workforce-law-catalog.md`: 46 official-source law routes plus company/project selector model.
 - `workforce-legal-topic-matrix.md`: 31 unique topic routes.
-- `taiwan-legal-register.md`: 64 independent evidence records: 56 current, 3 future-effective, and 5 pending selector/case questions.
+- `taiwan-legal-register.md`: 66 independent evidence records: 58 current, 3 future-effective, and 5 pending selector/case questions.
 
 ## Legal Source Boundary
 
 - Official Taiwan government sources are used for legal facts. Guidance is identified as guidance and does not replace law or regulation.
-- Current evidence covers relationship classification, recruitment, contract type, noncompete, service period, trial, statutory records, wage, working time, transfer, work rules, complaints, sexual harassment, workplace bullying, occupational safety, health checks, occupational accident insurance, pension, parental leave, resignation, termination, severance, annual-leave closeout, retirement, service certificate, personal data, electronic signatures, and trade secrets.
+- Current evidence covers relationship classification, recruitment, contract type, noncompete, service period, trial, statutory records, wage, working time, transfer, work rules, complaints, sexual harassment, workplace bullying, occupational safety, health checks, occupational accident insurance, National Health Insurance, pension, parental leave, resignation, termination, severance, annual-leave closeout, retirement, service certificate, personal data, electronic signatures, and trade secrets.
 - Future-effective evidence separately tracks personal-data amendments with an effective date to be set, the 2026-08-01 pension-rule provision, and staged 2027 occupational-safety provisions.
 - Pending records remain for Offer formation effects, foreign workers, minors/interns/cooperative education, mass-layoff thresholds, and collective-labor selectors.
 - Entity, headcount, work system, project, contractor tier, equipment, hazard, population, and ending-event selectors are still required before company applicability can be concluded.
@@ -36,7 +37,7 @@
 ## Validation Completed
 
 - HLC definition set passed: HLC00–HLC14, 15 definitions, with no missing or extra ID.
-- ID uniqueness passed: 37 gaps, 45 law sources, 31 topics, 64 legal evidence records, and 71 Candidate artifacts.
+- ID uniqueness passed: 37 gaps, 46 law sources, 31 topics, 66 legal evidence records, and 71 Candidate artifacts.
 - All 15 module packages exist and all 71 package artifact references match the canonical catalog; per-module counts match.
 - All referenced `TW-WF-*` IDs resolve to the legal evidence register.
 - All 71 artifact definition rows end in `Candidate`.

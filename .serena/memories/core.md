@@ -1,6 +1,7 @@
 # Project Core
 
-- Authoritative root: `D:\\GitHub\\Compliance-Code-of-Ethics`.
+- Project: `Helix-Workforce-Lifecycle-Compliance`.
+- Authoritative root: `D:\\GitHub\\Helix-Workforce-Lifecycle-Compliance`.
 - Scope: Taiwan Helix workforce lifecycle compliance and code-of-conduct governance for engineering, electromechanical, and lifting operations.
 - The canonical model is HLC00–HLC14 plus relationship state, concurrent module instances, Helix assignment, overlay, case, and parallel work items.
 - HLC00–HLC02 are entry modules; HLC03–HLC12 are concurrent and reentrant; HLC13 is voluntary resignation; HLC14 covers employer termination, retirement, shared closeout, and post-employment obligations.

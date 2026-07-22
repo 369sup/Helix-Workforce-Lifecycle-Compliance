@@ -1,4 +1,6 @@
-# Helix Workforce Lifecycle Compliance & Code of Conduct
+# Helix-Workforce-Lifecycle-Compliance
+
+臺灣工程企業的 Helix 組織、職員生命週期、法規證據與行為治理文件系統。
 
 > 狀態：設計草案（Draft）
 > 法域：臺灣

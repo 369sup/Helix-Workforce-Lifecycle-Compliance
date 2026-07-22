@@ -28,7 +28,7 @@
 | TOP-OSH-001 | 一般職安、教育及停止作業 | HLC00、HLC02–HLC05、HLC08–HLC12 | task／hazard／stop-work | OSH | current evidence |
 | TOP-OSH-002 | 承攬、共同作業及工地控制 | HLC00、HLC04–HLC05、HLC12 | contractor level／site／work package | OSH、REL | current + applicability review |
 | TOP-HEALTH-001 | 體格／健康檢查、職災與復工 | HLC00、HLC02、HLC04、HLC08–HLC09、HLC11、HLC14 | health overlay／case／sensitive data | HEALTH、OSH、DATA | partial evidence |
-| TOP-INS-001 | 勞保、就保與職災保險 | HLC01–HLC02、HLC07–HLC08、HLC11、HLC13–HLC14 | relationship／event date | INS | 職災保險 current；勞保／就保 pending |
+| TOP-INS-001 | 勞保、就保、職災保險與全民健康保險 | HLC01–HLC02、HLC07–HLC08、HLC11、HLC13–HLC14 | relationship／event date／國籍戶籍居留／主要工作 | INS、NHI | 職災保險與健保 current；勞保／就保 pending |
 | TOP-PENSION-001 | 勞退提繳、異動與資遣費 | HLC01–HLC02、HLC05、HLC07–HLC08、HLC11、HLC13–HLC14 | wage／system type／event date | PENSION、SEVERANCE | current + future evidence |
 | TOP-WORKRULE-001 | 工作規則、紀律與人數門檻 | HLC02、HLC05–HLC08、HLC10–HLC14 | headcount／filing／publication | WORKRULE、TERM | partial evidence |
 | TOP-END-001 | 自請離職、資遣、解僱、退休與保護期間 | HLC13–HLC14 | termination path／protected period | RESIGN、TERM、RETIRE | current evidence |

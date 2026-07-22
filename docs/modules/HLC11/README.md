@@ -17,9 +17,9 @@
 
 ## Gate 與輸出
 
-- 不同 overlay type 的工資、保險、退休、權限與聯絡規則分開，不用單一 suspension status 推定。
+- 不同 overlay type 的工資、勞保／就保／職災保險／健保、退休、權限與聯絡規則分開，不用單一 suspension status 推定；健保留停與復職另依 TW-WF-NHI-002 建立申報 work item。
 - 健康及案件資料分流，Delivery／CoE 只取得必要工作限制。
 - 復職不是恢復全部權限；依工作、健康、資格、設備與 site 重新 clearance。
 - 輸出為 overlay history、平行 work items、return decision 與 HLC04 assignment input。
 
-Legal routing：[LEAVE／HEALTH／INS／PENSION／DATA／TRANSFER](../../governance/taiwan-legal-register.md)。
+Legal routing：[LEAVE／HEALTH／INS／NHI／PENSION／DATA／TRANSFER](../../governance/taiwan-legal-register.md)。

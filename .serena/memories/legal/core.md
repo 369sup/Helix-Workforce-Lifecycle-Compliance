@@ -2,6 +2,7 @@
 
 - Baseline date: 2026-07-18. Re-verify before policy approval or whenever a law/subordinate rule changes.
 - Labor governance: Labor Standards Act, especially Art. 9-1 post-employment non-compete, Arts. 70-71 work rules and mandatory-law limits, Art. 74 labor-law complaint/non-retaliation.
+- Social insurance: separate Labor Insurance, Employment Insurance, Occupational Accident Insurance, National Health Insurance, and Labor Pension applicability, event dates, filing deadlines, and evidence. National Health Insurance Act Arts. 8-10 and 15 cover eligible employees, employer insurance units, and three-day enrollment/withdrawal filings.
 - Equal employment and harassment: Employment Service Act Art. 5; Gender Equality in Employment Act, especially Art. 13 employer size thresholds and response duties.
 - OSH: amended Occupational Safety and Health Act effective 2026-07-01; includes source prevention, contractor/joint-operation duties, qualified operators, stop-work protection, and workplace-bullying regime. Check current subordinate rules, not the pre-amendment text.
 - Lifting: Occupational Safety and Health Education and Training Rules; Safety Rules for Lifting Equipment; Regulations for Safety Inspection of Hazardous Machines and Equipment; Construction Safety and Health Facility Standards.

@@ -3,14 +3,14 @@
   "version": "0.3.0",
   "description": "Verify official Taiwan legal sources for workforce lifecycle and compliance governance.",
   "author": {
-    "name": "Compliance & Code of Ethics project"
+    "name": "Helix-Workforce-Lifecycle-Compliance"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Taiwan Compliance Governance",
     "shortDescription": "Taiwan legal verification for lifecycle governance.",
     "longDescription": "Verifies official Taiwan legal sources and produces evidence-ready records for workforce lifecycle and compliance governance in electromechanical and lifting work.",
-    "developerName": "Compliance & Code of Ethics project",
+    "developerName": "Helix-Workforce-Lifecycle-Compliance",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
     "defaultPrompt": [

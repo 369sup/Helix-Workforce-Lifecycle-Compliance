@@ -72,6 +72,7 @@ unresolved_questions:
 | TW-LAW-CORE-022 | 勞工職業災害保險及保護法／law | [勞動部法令系統](https://laws.mol.gov.tw/FLAW/FLAWDAT0201.aspx?id=FL096423) | current；2022-05-01 施行 | 受僱、訓練、建教、自營或實際從事勞動等法定身分 | HLC01–HLC05、HLC08–HLC09、HLC11、HLC13–HLC14／INS、INJURY、REHAB | TW-WF-INS-001–002；其他章節 pending |
 | TW-LAW-CORE-023 | 勞工退休金條例／law | [勞動部法令系統](https://laws.mol.gov.tw/FLAW/FLAWDAT0201.aspx?id=FL030634) | current | 適用人員、雇主、工資、資遣或退休事件 | HLC01–HLC02、HLC05、HLC07–HLC08、HLC11、HLC13–HLC14／PENSION、SEVERANCE | TW-WF-PENSION-001–002、TW-WF-SEVERANCE-001 |
 | TW-LAW-CORE-024 | 勞工退休金條例施行細則／regulation | [勞動部法令系統](https://laws.mol.gov.tw/FLAW/FLAWDAT0201.aspx?id=FL033689&ldate=20260325) | current；另有 2026-08-01 future-effective 條文 | 到職、離職、復職、留停、工資異動或申報 | HLC02、HLC07–HLC08、HLC11、HLC13–HLC14／PENSION | TW-WF-PENSION-002、TW-WF-FUTURE-PENSION-001 |
+| TW-LAW-CORE-040 | 全民健康保險法／law | [全國法規資料庫](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0060001) | current；2023-06-28 修正 | 國籍／居留、受僱、投保順序、投保單位、到職、退保原因及三日申報期間 | HLC01–HLC02、HLC07–HLC08、HLC11、HLC13–HLC14／NHI | TW-WF-NHI-001–002 |
 
 ### 2.4 職安、健康、營造與起重
 
