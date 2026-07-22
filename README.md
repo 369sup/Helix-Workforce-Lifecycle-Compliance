@@ -1,148 +1,126 @@
-# Workforce Lifecycle Compliance & Code of Conduct
+# Helix Workforce Lifecycle Compliance & Code of Conduct
 
-> 狀態：生命週期架構草案（Draft）
-> 法域：臺灣地區
-> 產業：機電工程、起重工程
-> 法規查證基準日：2026-07-20
-> 架構決策：Workforce Lifecycle-first；職能控制 taxonomy 待後續重新設計
+> 狀態：設計草案（Draft）
+> 法域：臺灣
+> 產業基準：機電、起重與工程專案企業
+> 架構及法律查證基準日：2026-07-23
 
 > [!IMPORTANT]
-> 本專案建立職員與其他工作者生命週期的治理、文件模型及候選文件清單，不是法律意見，也不代表公司已完成法令遵循。正式使用前仍須依實際法律關係、公司人數、工程與承攬身分、工作內容及所在地完成個案審查。
+> 本 repo 建立治理模型、法律證據與 Candidate artifact catalog，不是法律意見，也不表示公司已完成法定程序或現場控制。正式導入前須依公司法人、人數、關係、工程角色、承攬層級、工作、設備、危害、地點及事件日期完成適用性審查。
 
-## 1. 專案目標
+## 1. 設計結論
 
-建立一套可長期維護的 workforce lifecycle 文件治理系統，使每個人員或合作關係都能回答：
+本架構把 Helix 定義為「單一雇主、雙軌治理、單一日常工作排序者」：
 
-- 目前是何種法律或合作關係；
-- 位於生命週期的哪個階段；
-- 何時、依何證據進入或離開該階段；
-- 哪些決定、文件、權限、資產與紀錄必須建立或撤銷；
-- 哪些法律結論已確認、仍待查證或必須個案審查。
+- Employer／HR 對勞動條件、保險、退休、職安、個資與人事決定負責；
+- Delivery line 對專案交付、工作包、優先順序、成本與工期負責；
+- CoE／Technical Authority 對能力、技術標準、資格、授權與技術風險負責；
+- Resource Governance 協調跨專案容量，不成為第三個日常主管；
+- Shared Engineering Platform 提供資料與工程服務，不取得人事指揮權。
 
-本 repo 只保存治理文件、空白欄位與資料結構。履歷、身分資料、薪資、評核、申訴及其他具名紀錄必須保存於經授權的受控系統，不得提交至 Git。
+每一決定只有一位最終 accountable role。技術否決限於法令、安全、核准標準、設計基準或授權邊界，且須留下原因、範圍、升級與解除證據。
 
-## 2. 架構模型
-
-同一人在特定時間的文件與控制需求由四項事實共同決定：
+## 2. Canonical 模型
 
 ```text
-適用文件與控制 = 關係性質
-               + 目前 LC 階段
-               + 當下發生的跨階段事件
-               + 職務、資格、權限、設備、任務及場所條件
+適用文件與控制 = relationship_type + relationship_state
+               + concurrent HLC module instances
+               + helix_assignment + overlay + case
+               + parallel_work_items
+               + role／task／equipment／hazard／site selectors
 ```
 
-- **關係性質**回答雙方的實際法律與合作關係。
-- **LC 階段**回答該關係位於需求、招募、到職、試用、在職、離場或離職後的哪個位置。
-- **跨階段事件**處理績效、獎懲、申訴、事故、休假、調職、升遷及關係轉換等非每人必經事項。
-- **職能與作業條件**未在本輪分配永久 taxonomy；後續必須從到職、取得權限或開始任務時啟用，不能延後至轉正。
+- `relationship_state` 只表示 planning、candidate、offer_pending、pre_start、active、termination_pending 或 ended。
+- HLC00–HLC02 是一般入口導航。
+- HLC03–HLC12 是可並行、可重入的工作模組，不是單線階段。
+- HLC13 是自請離職路徑；HLC14 是資遣、解僱、退休及共同離場路徑。
+- `helix_assignment` 分別記錄 Employer、CoE、People、Delivery、Work Priority、Technical、Resource 與 HSE roles。
+- overlay 不取代 active relationship；case 不因離職自動結案。
 
-完整定義、轉換及候選文件以 [Workforce Lifecycle Model](docs/governance/workforce-lifecycle-model.md) 為唯一來源。
+唯一 canonical 定義見 [Helix Workforce Lifecycle Model](docs/governance/workforce-lifecycle-model.md)，Helix 權責見 [Helix Organization Governance Model](docs/governance/helix-organization-governance-model.md)。
 
-## 3. LC00–LC10 摘要
+## 3. HLC00–HLC14
 
-| ID | 階段 | 主要邊界 |
+| ID | 模組 | 邊界 |
 | --- | --- | --- |
-| LC00 | 用人／用工需求與核准 | 需求、預算、職位或合作性質及核准 |
-| LC01 | 招募、申請與甄選 | 候選資料、資格條件、評選與未錄取結案 |
-| LC02 | 錄取通知／合作提案 | Offer Letter、合作提案、接受、拒絕、撤回或失效 |
-| LC03 | 預到職／進場前條件 | 身分、資格及開始條件的確認 |
-| LC04 | 到職／開始合作與 Onboarding | 從約定開始日建立實際關係、權限、資產與基本義務 |
-| LC05 | 試用／初期合作評估 | 員工試用或非僱傭人員初期評估；可跳過 |
-| LC06 | 穩定在職／持續合作 | 日常任用、發展、訓練及持續管理 |
-| LC07 | 異動、暫停與關係轉換 | 調職、升遷、薪資／地點變更、留停及性質重分類 |
-| LC08 | 離職／終止的啟動與決定 | 申請、通知、法律依據、審查與生效決定 |
-| LC09 | Offboarding、結清與撤權 | 交接、薪資或費用結清、財物返還、權限撤銷 |
-| LC10 | 離職後義務與再聘／再合作 | 保存、保密、證明、再聘資格；再聘建立新實例 |
+| HLC00 | 人力規劃、職缺與招募 | 需求、關係初判、職務／危害／資格、甄選與候選資料 |
+| HLC01 | 錄取、契約與開始前條件 | Offer／協議版本、接受、clearance、取消或延後 |
+| HLC02 | 到職、Onboarding 與初始 Helix 配置 | 三類開始日期、名卡、保險、退休、權限、資產與 assignment |
+| HLC03 | 能力基線、公司職級與技術授權 | 能力、職級、資格與授權互不自動推導 |
+| HLC04 | 專案派任、配置與工地動員 | 角色、比例、priority owner、地點、工時、技術與安全 gate |
+| HLC05 | 在職交付、工時與日常工作指揮 | 工作包、出勤、加班、品質、技術、安全與資源衝突 |
+| HLC06 | 試用、績效、改善與申覆 | 雙軌輸入、單一結果；不得直接產生終止 |
+| HLC07 | 調薪、晉升、職級與職涯 | 校準、決定、通知／同意與生效日 |
+| HLC08 | 跨專案調動、借調及工作條件變更 | 前後條件、不利益、員工意見、法律與安全 gate |
+| HLC09 | 訓練、證照、續證與人才發展 | 訓練類型、費用、能力、資格、到期與服務年限 gate |
+| HLC10 | 職場事件、申訴、調查與紀律 | 性騷擾、霸凌、禁止報復、迴避、外部路徑與申復 |
+| HLC11 | 留停、職災醫療及其他暫停 overlay | active relationship 上的工資、保險、權限、聯絡與復職狀態 |
+| HLC12 | 專案結案、釋放、Bench 與再配置 | 專案結束不等於勞動契約終止 |
+| HLC13 | 自請離職 | 意思表示、最後工作日及平行 closeout |
+| HLC14 | 資遣、解僱、退休與共同離場 | 法定路徑審查、平行 closeout 與離職後義務 |
 
-## 4. 關係性質
+## 4. 不變條件
 
-第一版候選關係包括：
+- 公司職級、專案角色及技術授權是三個獨立物件。
+- 每位職員在特定 assignment 只有一位日常 Work Priority Owner。
+- Offer 接受、契約成立、契約開始、實際工作及行政 onboarding 完成分開記錄。
+- 試用是 HLC06 的可選子型；已成立關係的法定權益不因試用降低。
+- HLC03–HLC12 不得被實作成固定直線流程。
+- 專案釋放先進 HLC12；Bench 維持 active，不得停薪、強迫請假或自動轉為 ended。
+- HLC10 case 可跨所有 relationship state，且須有衝突迴避、外部路徑與禁止報復控制。
+- 關係終止與工資、保險、資產、權限、證明及資料處置的完成是不同事件。
+- 每個 closeout work item 只能是 `completed`、具理由的 `not-applicable`，或有 Owner／期限的 `transferred`。
+- 再聘建立新 workforce instance，既有 instance 維持不可改寫。
+- 收受、已讀、知悉、同意、雙方簽署與 authority approval 是不同 evidence type。
+- 政策與簽收不能取代工作規則、法定協商、訓練、資格、檢查、許可、通報或現場控制。
 
-- 直聘不定期受僱；
-- 直聘定期受僱；
-- 部分工時受僱；
-- 派遣勞工；
-- 承攬商或再承攬商所僱人員；
-- 獨立承攬人或顧問；
-- 實習、見習或訓練人員。
+## 5. 法律與文件治理
 
-上述名稱不是法律結論。是否屬勞動契約、派遣或承攬，必須依實際從屬性、指揮監督及整體履行事實判斷，不受契約標題拘束。實習或訓練安排也必須先確認其實質關係。
+| 文件 | 權威邊界 |
+| --- | --- |
+| [Lifecycle Gap Analysis](docs/governance/workforce-lifecycle-gap-analysis.md) | 追蹤設計缺口、決定、證據、嚴重度與狀態 |
+| [Taiwan Workforce Law Catalog](docs/governance/taiwan-workforce-law-catalog.md) | 法源路由，不作個案適用結論 |
+| [Workforce Legal Topic Matrix](docs/governance/workforce-legal-topic-matrix.md) | HLC 與法律議題覆蓋，不取代逐條 evidence |
+| [Taiwan Legal Evidence Register](docs/governance/taiwan-legal-register.md) | 官方來源查證的獨立義務、狀態、觸發與 unresolved |
+| [Helix Workforce Document Catalog](docs/governance/helix-workforce-document-catalog.md) | Candidate artifact 與簽署語意；不是正式模板 |
+| [HLC Module Packages](docs/modules/README.md) | HLC00–HLC14 各模組的必要文件、gate、owner、evidence 與輸出 |
 
-「試用」是受僱後的生命週期狀態，不是獨立關係性質。非僱傭人員如有初期評估，應使用符合其實際關係的名稱與文件，不得直接套用員工試用或轉正文件。
+法律 evidence 分 `current`、`future-effective`、`pending`，並分 `依法必須`、`公司政策選擇`、`個案待法律審查`。已公布不等於已施行；FAQ、新聞稿或行政指導只作明確標示的 guidance。
 
-## 5. 不變條件
+## 6. Repository 邊界
 
-- LC ID 表示穩定生命週期階段，不表示職稱、部門或個別人員。
-- `LC04 → LC05` 只有在事前存在試用或初期評估安排時才發生；否則由 LC04 直接進入 LC06。
-- 試用延長留在 LC05，必須保存雙方合意與有效日期證據。
-- 試用未通過或初期評估不繼續，不得直接把關係標記為結束；必須依序經 LC08 與 LC09。
-- 離職、終止或合作結束的法律依據、程序及結果不得由狀態機自動決定。
-- 離職後再聘或再合作建立新的 lifecycle instance，不倒轉原紀錄。
-- 每次階段轉換都必須保存事件、有效日期、發起人、核准人及證據引用。
-- 法律與公司政策選擇分離；未確認的門檻、身分或法律效果標記 `待驗證`。
-- 文件簽收不能取代法定協商、同意、訓練、資格、檢查、許可或現場控制。
-
-## 6. 文件治理
-
-### 6.1 文件狀態
-
-```text
-Candidate → Draft → In Review → Approved → Effective → Superseded / Retired
-```
-
-本輪候選文件全部維持 `Candidate`，不分配永久文件 ID，也不視為已核准模板。
-
-### 6.2 法規證據
-
-法律結論集中在 [Taiwan Legal Register](docs/governance/taiwan-legal-register.md)，每項獨立要求分列證據紀錄並標示：
-
-- `依法必須`；
-- `公司政策選擇`；
-- `個案待法律審查`。
-
-官方 guidance 與 FAQ 必須標明其性質，不得寫成法條。公布日、施行日、過渡期與查證日分別記錄。
-
-### 6.3 優先順序
-
-1. 適用法律與主管機關要求；
-2. 合法有效的僱傭契約、個別協議、工作規則或團體協約；
-3. 工地、業主、契約及所在地要求；
-4. 經核准且已生效的公司政策與程序；
-5. 無法判定時停止受影響的決定或作業，交由具權責者與專業人員書面確認。
-
-## 7. Repository 結構
+完整文件樹見 [Documentation Tree](docs/README.md)，治理文件的依賴關係見 [Governance Document Map](docs/governance/README.md)。
 
 ```text
-.
+docs/governance/
 ├── README.md
-├── AGENTS.md
-├── docs/
-│   └── governance/
-│       ├── workforce-lifecycle-model.md
-│       └── taiwan-legal-register.md
-└── plugins/
-    └── taiwan-compliance-governance/
+├── helix-organization-governance-model.md
+├── workforce-lifecycle-model.md
+├── workforce-lifecycle-gap-analysis.md
+├── helix-workforce-document-catalog.md
+├── taiwan-workforce-law-catalog.md
+├── workforce-legal-topic-matrix.md
+└── taiwan-legal-register.md
+
+docs/modules/
+├── README.md
+└── HLC00/ ... HLC14/
+
+docs/enterprise/
+└── README.md
+
+docs/shared/
+└── artifact-governance.md
 ```
 
-實際模板核准前不建立空的生命週期子目錄。未來若建立表單、通知、協議或 register，只保存空白格式與欄位定義。
+本 repo 只保存治理文件、空白欄位與 schema。履歷、身分、薪資、健康、績效、申訴、調查與其他具名資料必須留在授權系統，不得提交 Git。正式模板、文件 ID 與公司制度待取得實際適用事實、owner 與核准後再建立。
 
-## 8. 待確認事項
+## 7. 尚待公司確認
 
-1. 各事業單位、工作地點、員工人數及實際適用法規。
-2. 實際使用的不定期、定期、部分工時、派遣、承攬、顧問及實習安排。
-3. Offer Letter 內容、接受方式、先決條件及其個案法律效果。
-4. 試用期間、目標、評核程序、延長與終止審查流程。
-5. Owner、Approver、法務、人資、職安衛、資訊及現場權責分工。
-6. 個資告知、保存期限、存取權限及受控 HR 系統。
-7. 薪資、出勤、保險、退休金、職災、休假及離職結清的適用性證據。
-8. 職能、資格、權限、設備、任務及場所控制 taxonomy。
+- 法人、事業分類、員工人數、工會／勞資會議、工作規則及工時制度；
+- 工程、業主、原事業單位／承攬角色、工地、設備、作業及危害；
+- 外國人、未成年、實習／建教、派遣、顧問與承攬等實際人口；
+- HR、Payroll、IAM、HSE、採購、案件與文件系統及其 record owner；
+- Employer、Delivery、CoE、Technical、Resource、HSE、Case 與 Legal authorities。
 
-## 9. 建議建置順序
-
-1. 核准 LC00–LC10 的階段、轉換與關係分支。
-2. 逐一查證候選文件涉及的臺灣法律要求與適用門檻。
-3. 指定每個階段與文件的 Owner、Approver 及紀錄系統。
-4. 從 LC02–LC05 選擇最小垂直切片，起草 Offer、到職、試用及評核文件。
-5. 以拒絕 Offer、無試用、試用延長、試用未通過、派遣、承攬、留停、異動、離職撤回及再聘案例驗證流程。
-6. 生命週期核准後，再以實際職能與作業風險重新設計控制 taxonomy。
+這些事實未取得前，所有門檻型法規與 Candidate artifact 都保留適用性 gate，不推定公司已合規。

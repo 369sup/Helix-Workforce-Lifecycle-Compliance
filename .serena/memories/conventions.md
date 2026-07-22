@@ -1,14 +1,16 @@
 # Conventions
 
-- Use Taiwan Traditional Chinese. English is limited to names and metadata where useful.
-- LC stage IDs are fixed as LC00–LC10. Do not encode a person, title, site, relationship type, equipment, or applicability category into an LC ID.
-- Every stage records: entry event/evidence, applicable relationship, required decision, candidate documents, exit event/evidence, allowed next stage, Owner, Approver, and legal-evidence ID.
-- Every transition records: source, trigger/decision, target, and required evidence.
-- Keep relationship type, lifecycle stage, cross-stage event, and future functional controls as separate dimensions.
-- LC05 is optional. An agreed extension remains in LC05 with evidence. A failed evaluation proceeds through LC08 and LC09. Rehire or renewed cooperation creates a new lifecycle instance.
-- Candidate documents remain `Candidate` and receive no permanent document ID in the current slice.
+- Use Taiwan Traditional Chinese. English is limited to identifiers, established role names, and metadata.
+- HLC module IDs are HLC00–HLC14. Do not encode a person, title, site, relationship type, equipment, or applicability conclusion into an HLC ID.
+- HLC00–HLC02 are entry modules; HLC03–HLC12 are concurrent and reentrant; HLC13–HLC14 are relationship-ending paths with parallel closeout.
+- Keep relationship type, relationship state, HLC module, assignment, overlay, case, work item, and task/hazard selectors separate.
+- Each module records purpose, allowed relationship state, trigger, required decisions, Candidate artifacts, evidence, Owner/Authority, and Legal Evidence IDs.
+- Each decision or state change records occurred, recorded, approved, notified, received, and effective timestamps where applicable.
+- Helix assignment distinguishes Employer, CoE, People, Delivery, Work Priority, Technical, Resource, and HSE roles; one decision has one accountable role.
+- Candidate artifacts remain `Candidate` and receive no permanent production document ID until company review and approval.
+- Signature semantics distinguish receipt, acknowledgement, consent, bilateral signature, authority approval, and external filing.
 - Store only governance fields, empty structures, and evidence definitions; never store named personal data in the repository.
-- Legal conclusions use only official Taiwan government sources and one evidence record per independently verifiable requirement.
-- Mark unverified legal questions `待驗證`; do not fill gaps with convention or contract labels.
-- Policies state required or prohibited outcomes. Procedures state who acts, when, how, and what evidence remains.
-- Disciplinary action or termination is never an automatic document result; preserve proportionality, procedure, work-rule review, and mandatory-law review.
+- Legal conclusions use official Taiwan sources and one evidence record per independently verifiable requirement.
+- Mark unresolved legal questions `pending`; do not fill gaps with company convention or contract labels.
+- Policies state required or prohibited outcomes. Procedures state who acts, when, how, exceptions, and retained evidence.
+- Performance, disciplinary action, project release, Bench, or termination is never an automatic document result; preserve independent review, proportionality, protected-state checks, and mandatory-law review.
