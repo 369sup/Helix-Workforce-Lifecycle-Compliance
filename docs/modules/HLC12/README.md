@@ -22,4 +22,4 @@
 - 新專案進入 HLC04；職務／地點重大變更另開 HLC08。
 - 確實需要終止時只輸出 HLC14 review request，並保存適當工作搜尋 evidence。
 
-Legal routing：[TIME／TRANSFER／TERM／DATA／TRADE](../../governance/taiwan-legal-register.md)。
+Legal routing：[TIME／TRANSFER／TERM／DATA／TRADE](../../governance/legal/workforce-legal-evidence-register.md)。

@@ -1,6 +1,6 @@
 ---
 name: verify-taiwan-compliance-law
-description: Verify Taiwan compliance law from current official government sources and produce evidence-ready legal-register entries. Use for legal claims, article citations, effective dates, transition periods, workforce or equipment thresholds, applicability analysis, or updates to taiwan-legal-register.md for electromechanical, construction, lifting, employment, privacy, trade-secret, AI, vehicle, contractor, or workplace-conduct topics. Do not use to provide final legal advice or to claim operational compliance.
+description: Verify Taiwan compliance law from current official government sources and produce evidence-ready legal-register entries. Use for legal claims, article citations, effective dates, transition periods, workforce or equipment thresholds, applicability analysis, or updates to docs/governance/legal/workforce-legal-evidence-register.md for electromechanical, construction, lifting, employment, privacy, trade-secret, AI, vehicle, contractor, or workplace-conduct topics. Do not use to provide final legal advice or to claim operational compliance.
 ---
 
 # Verify Taiwan Compliance Law

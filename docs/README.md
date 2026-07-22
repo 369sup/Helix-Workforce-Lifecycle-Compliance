@@ -10,13 +10,16 @@ docs/
 ├── README.md
 ├── governance/
 │   ├── README.md
-│   ├── helix-organization-governance-model.md
-│   ├── workforce-lifecycle-model.md
-│   ├── workforce-lifecycle-gap-analysis.md
-│   ├── helix-workforce-document-catalog.md
-│   ├── taiwan-workforce-law-catalog.md
-│   ├── workforce-legal-topic-matrix.md
-│   └── taiwan-legal-register.md
+│   ├── models/
+│   │   ├── organization-governance-model.md
+│   │   └── workforce-lifecycle-model.md
+│   ├── assurance/
+│   │   ├── workforce-artifact-catalog.md
+│   │   └── workforce-lifecycle-gap-analysis.md
+│   └── legal/
+│       ├── workforce-law-source-catalog.md
+│       ├── workforce-legal-topic-matrix.md
+│       └── workforce-legal-evidence-register.md
 ├── enterprise/
 │   └── README.md
 ├── shared/
@@ -46,7 +49,7 @@ docs/
 2. [Enterprise Governance Artifacts](enterprise/README.md)
 3. [HLC Module Index](modules/README.md)
 4. 目標 HLC module 的 `README.md`
-5. 該 module 引用的 [Legal Evidence Register](governance/taiwan-legal-register.md)
+5. 該 module 引用的 [Legal Evidence Register](governance/legal/workforce-legal-evidence-register.md)
 6. [Artifact Governance](shared/artifact-governance.md)
 
 ## 權威邊界

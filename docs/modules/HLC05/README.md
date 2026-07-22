@@ -24,4 +24,4 @@
 - Technical Hold 與安全 stop-work 不得被專案成本或進度否決。
 - 輸出為交付、工時、技術、品質、安全與資源決定的 evidence chain。
 
-Legal routing：[TIME／WAGE／RECORD／OSH／COMPLAINT](../../governance/taiwan-legal-register.md)。
+Legal routing：[TIME／WAGE／RECORD／OSH／COMPLAINT](../../governance/legal/workforce-legal-evidence-register.md)。

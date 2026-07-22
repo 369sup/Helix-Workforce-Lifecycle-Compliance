@@ -23,4 +23,4 @@
 - 最後工資不得因資產、訓練或賠償爭議被概括預扣。
 - 輸出為可證明的 relationship transition、parallel closeout 與 post-employment work items。
 
-Legal routing：[RESIGN／WAGE／LEAVE／INS／NHI／PENSION／SERVICE／DATA](../../governance/taiwan-legal-register.md)。
+Legal routing：[RESIGN／WAGE／LEAVE／INS／NHI／PENSION／SERVICE／DATA](../../governance/legal/workforce-legal-evidence-register.md)。

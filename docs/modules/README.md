@@ -22,4 +22,4 @@
 | HLC13 | 自請離職 | 2 個主文件＋共用 closeout | [HLC13](HLC13/README.md) |
 | HLC14 | 資遣、解僱、退休、共同離場與離職後 | 7 | [HLC14](HLC14/README.md) |
 
-公司級六項文件另見 [Enterprise Governance Artifacts](../enterprise/README.md)。全部 71 項 Candidate artifact 的 canonical inventory 見 [Helix Workforce Document Catalog](../governance/helix-workforce-document-catalog.md)。
+公司級六項文件另見 [Enterprise Governance Artifacts](../enterprise/README.md)。全部 71 項 Candidate artifact 的 canonical inventory 見 [Helix Workforce Artifact Catalog](../governance/assurance/workforce-artifact-catalog.md)。

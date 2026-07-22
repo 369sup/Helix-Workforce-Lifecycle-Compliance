@@ -27,4 +27,4 @@
 - 競業與服務年限只在各自法律 gate 完成後使用，不得全員套用。
 - 輸出為有效協議版本、各 clearance 狀態、預定開始日與 unresolved list。
 
-Legal routing：[OFFER／CONTRACT／REL／DATA／INS／NHI／PENSION](../../governance/taiwan-legal-register.md)。
+Legal routing：[OFFER／CONTRACT／REL／DATA／INS／NHI／PENSION](../../governance/legal/workforce-legal-evidence-register.md)。

@@ -22,4 +22,4 @@
 - 到期前產生 renewal work item；到期未完成即停止受影響工作或授權。
 - 輸出為 training history、assessment、credential、expiry 與 HLC03 authorization input。
 
-Legal routing：[OSH／TIME／CONTRACT](../../governance/taiwan-legal-register.md)。
+Legal routing：[OSH／TIME／CONTRACT](../../governance/legal/workforce-legal-evidence-register.md)。

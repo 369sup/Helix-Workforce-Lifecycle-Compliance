@@ -25,4 +25,4 @@
 - 輸出為核准需求、職務版本、關係初評、招募資料規則及 candidate disposition。
 - 進入 HLC01 不表示 Offer 已成立；未錄取案件須完成資料保存或刪除決定。
 
-Legal routing：[REL／RECRUIT／CONTRACT／DATA](../../governance/taiwan-legal-register.md)。
+Legal routing：[REL／RECRUIT／CONTRACT／DATA](../../governance/legal/workforce-legal-evidence-register.md)。

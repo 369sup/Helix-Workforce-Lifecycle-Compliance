@@ -1,20 +1,42 @@
-{
-  "name": "personal",
-  "interface": {
-    "displayName": "Personal"
+[
+  {
+    "name": "personal",
+    "interface": {
+      "displayName": "Personal"
+    },
+    "plugins": [
+      {
+        "name": "taiwan-compliance-governance",
+        "source": {
+          "source": "local",
+          "path": "./plugins/taiwan-compliance-governance"
+        },
+        "policy": {
+          "installation": "AVAILABLE",
+          "authentication": "ON_INSTALL"
+        },
+        "category": "Productivity"
+      }
+    ]
   },
-  "plugins": [
-    {
-      "name": "taiwan-compliance-governance",
-      "source": {
-        "source": "local",
-        "path": "./plugins/taiwan-compliance-governance"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    }
-  ]
-}
+  {
+    "name": "support-repository",
+    "interface": {
+      "displayName": "Support Repository"
+    },
+    "plugins": [
+      {
+        "name": "serena-jetbrains",
+        "source": {
+          "source": "local",
+          "path": "./plugins/serena-jetbrains"
+        },
+        "policy": {
+          "installation": "AVAILABLE",
+          "authentication": "ON_INSTALL"
+        },
+        "category": "Productivity"
+      }
+    ]
+  }
+]

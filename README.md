@@ -39,7 +39,7 @@
 - `helix_assignment` 分別記錄 Employer、CoE、People、Delivery、Work Priority、Technical、Resource 與 HSE roles。
 - overlay 不取代 active relationship；case 不因離職自動結案。
 
-唯一 canonical 定義見 [Helix Workforce Lifecycle Model](docs/governance/workforce-lifecycle-model.md)，Helix 權責見 [Helix Organization Governance Model](docs/governance/helix-organization-governance-model.md)。
+唯一 canonical 定義見 [Helix Workforce Lifecycle Model](docs/governance/models/workforce-lifecycle-model.md)，Helix 權責見 [Helix Organization Governance Model](docs/governance/models/organization-governance-model.md)。
 
 ## 3. HLC00–HLC14
 
@@ -80,11 +80,11 @@
 
 | 文件 | 權威邊界 |
 | --- | --- |
-| [Lifecycle Gap Analysis](docs/governance/workforce-lifecycle-gap-analysis.md) | 追蹤設計缺口、決定、證據、嚴重度與狀態 |
-| [Taiwan Workforce Law Catalog](docs/governance/taiwan-workforce-law-catalog.md) | 法源路由，不作個案適用結論 |
-| [Workforce Legal Topic Matrix](docs/governance/workforce-legal-topic-matrix.md) | HLC 與法律議題覆蓋，不取代逐條 evidence |
-| [Taiwan Legal Evidence Register](docs/governance/taiwan-legal-register.md) | 官方來源查證的獨立義務、狀態、觸發與 unresolved |
-| [Helix Workforce Document Catalog](docs/governance/helix-workforce-document-catalog.md) | Candidate artifact 與簽署語意；不是正式模板 |
+| [Helix Workforce Lifecycle Gap Analysis](docs/governance/assurance/workforce-lifecycle-gap-analysis.md) | 追蹤設計缺口、決定、證據、嚴重度與狀態 |
+| [Taiwan Workforce Law Source Catalog](docs/governance/legal/workforce-law-source-catalog.md) | 法源路由，不作個案適用結論 |
+| [Taiwan Workforce Legal Topic Matrix](docs/governance/legal/workforce-legal-topic-matrix.md) | HLC 與法律議題覆蓋，不取代逐條 evidence |
+| [Taiwan Workforce Legal Evidence Register](docs/governance/legal/workforce-legal-evidence-register.md) | 官方來源查證的獨立義務、狀態、觸發與 unresolved |
+| [Helix Workforce Artifact Catalog](docs/governance/assurance/workforce-artifact-catalog.md) | Candidate artifact 與簽署語意；不是正式模板 |
 | [HLC Module Packages](docs/modules/README.md) | HLC00–HLC14 各模組的必要文件、gate、owner、evidence 與輸出 |
 
 法律 evidence 分 `current`、`future-effective`、`pending`，並分 `依法必須`、`公司政策選擇`、`個案待法律審查`。已公布不等於已施行；FAQ、新聞稿或行政指導只作明確標示的 guidance。
@@ -96,13 +96,16 @@
 ```text
 docs/governance/
 ├── README.md
-├── helix-organization-governance-model.md
-├── workforce-lifecycle-model.md
-├── workforce-lifecycle-gap-analysis.md
-├── helix-workforce-document-catalog.md
-├── taiwan-workforce-law-catalog.md
-├── workforce-legal-topic-matrix.md
-└── taiwan-legal-register.md
+├── models/
+│   ├── organization-governance-model.md
+│   └── workforce-lifecycle-model.md
+├── assurance/
+│   ├── workforce-artifact-catalog.md
+│   └── workforce-lifecycle-gap-analysis.md
+└── legal/
+    ├── workforce-law-source-catalog.md
+    ├── workforce-legal-topic-matrix.md
+    └── workforce-legal-evidence-register.md
 
 docs/modules/
 ├── README.md

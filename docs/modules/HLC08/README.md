@@ -22,4 +22,4 @@
 - 受影響的 HLC03、HLC04、HLC09 或 HLC11 gate 依差異重開。
 - 輸出為核准變更、員工表示、新 assignment 及平行 remediation items。
 
-Legal routing：[TRANSFER／CONTRACT／INS／NHI／PENSION／OSH／DATA](../../governance/taiwan-legal-register.md)。
+Legal routing：[TRANSFER／CONTRACT／INS／NHI／PENSION／OSH／DATA](../../governance/legal/workforce-legal-evidence-register.md)。

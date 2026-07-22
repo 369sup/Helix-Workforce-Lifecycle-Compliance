@@ -10,7 +10,7 @@
 
 ## 1. Canonical Dimensions
 
-本文件是 HLC ID、狀態、並行規則與共同流程的唯一來源。配套角色見 [Helix Organization Governance Model](helix-organization-governance-model.md)，候選文件見 [Helix Workforce Document Catalog](helix-workforce-document-catalog.md)。
+本文件是 HLC ID、狀態、並行規則與共同流程的唯一來源。配套角色見 [Helix Organization Governance Model](organization-governance-model.md)，候選文件見 [Helix Workforce Artifact Catalog](../assurance/workforce-artifact-catalog.md)。
 
 同一 workforce instance 同時由下列維度描述：
 
@@ -244,4 +244,4 @@ HLC02、HLC11、HLC12、HLC13 與 HLC14 不使用單一完成布林值。closeou
 
 ## 12. Legal and Professional Boundary
 
-所有法律敘述引用 [Taiwan Legal Register](taiwan-legal-register.md)。法規名稱清單與 HLC topic routing 分別見 [Taiwan Workforce Law Catalog](taiwan-workforce-law-catalog.md) 與 [Workforce Legal Topic Matrix](workforce-legal-topic-matrix.md)。未取得公司人數、雇主、工地、工程、承攬層級、設備、危害、工會、工作制度或事件日期前，不得把條件式 evidence 宣稱為實際適用。
+所有法律敘述引用 [Taiwan Workforce Legal Evidence Register](../legal/workforce-legal-evidence-register.md)。法規名稱清單與 HLC topic routing 分別見 [Taiwan Workforce Law Source Catalog](../legal/workforce-law-source-catalog.md) 與 [Taiwan Workforce Legal Topic Matrix](../legal/workforce-legal-topic-matrix.md)。未取得公司人數、雇主、工地、工程、承攬層級、設備、危害、工會、工作制度或事件日期前，不得把條件式 evidence 宣稱為實際適用。

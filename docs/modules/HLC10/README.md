@@ -23,4 +23,4 @@
 - 暫時措施不得預判責任，也不得形成報復或不必要的不利變更。
 - Case 不因離職自動結案；輸出包括 findings、decision、appeal、follow-up、retention 與 legal hold。
 
-Legal routing：[COMPLAINT／HARASS／BULLY／OSH／DATA](../../governance/taiwan-legal-register.md)。
+Legal routing：[COMPLAINT／HARASS／BULLY／OSH／DATA](../../governance/legal/workforce-legal-evidence-register.md)。

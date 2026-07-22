@@ -24,4 +24,4 @@
 - 固定績效權重不屬 canonical；角色方案須另經平等與治理審查。
 - 本模組不得直接把 relationship state 改成 ended；需要終止時只輸出 HLC14 review request。
 
-Legal routing：[TRIAL／TERM／DATA／COMPLAINT](../../governance/taiwan-legal-register.md)。
+Legal routing：[TRIAL／TERM／DATA／COMPLAINT](../../governance/legal/workforce-legal-evidence-register.md)。

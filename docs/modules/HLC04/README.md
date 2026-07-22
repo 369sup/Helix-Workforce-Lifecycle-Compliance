@@ -24,4 +24,4 @@
 - HLC04 只證明進場 gate；不取代作業許可、設備檢查或現場施工控制。
 - 輸出為有效 assignment、project decision rights、site clearance 與 access set。
 
-Legal routing：[TRANSFER／TIME／OSH／DATA／TRADE](../../governance/taiwan-legal-register.md)。
+Legal routing：[TRANSFER／TIME／OSH／DATA／TRADE](../../governance/legal/workforce-legal-evidence-register.md)。

@@ -1,13 +1,13 @@
-# Helix Workforce Document Catalog
+# Helix Workforce Artifact Catalog
 
 > 狀態：Draft / Candidate inventory
 > 建立日：2026-07-23
-> Canonical modules：[Helix Workforce Lifecycle Model](workforce-lifecycle-model.md)
+> Canonical modules：[Helix Workforce Lifecycle Model](../models/workforce-lifecycle-model.md)
 
 > [!IMPORTANT]
 > 本 catalog 保存候選 artifact 與簽署語意，不表示每家公司、每位人員或每個專案都必須建立或簽署全部項目。正式啟用前須完成適用性、法律 evidence、Owner、版本、系統及個案文字審查。
 
-依 HLC 整理的文件 package 見 [HLC Module Index](../modules/README.md)；公司級共同文件見 [Enterprise Governance Artifacts](../enterprise/README.md)，共用簽署與版本規則見 [Artifact Governance](../shared/artifact-governance.md)。
+依 HLC 整理的文件 package 見 [HLC Module Index](../../modules/README.md)；公司級共同文件見 [Enterprise Governance Artifacts](../../enterprise/README.md)，共用簽署與版本規則見 [Artifact Governance](../../shared/artifact-governance.md)。
 
 ## 1. Artifact Contract
 

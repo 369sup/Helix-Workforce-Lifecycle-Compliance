@@ -4,7 +4,7 @@
 > 基準日：2026-07-23（Asia/Taipei）
 > 範圍：臺灣 Helix workforce lifecycle 的官方法源查證；不是個案法律意見
 
-本台帳把「法規名稱」轉成可被 HLC 模組引用的獨立法律要求。完整法規路由見 [Taiwan Workforce Law Catalog](taiwan-workforce-law-catalog.md)，議題覆蓋見 [Workforce Legal Topic Matrix](workforce-legal-topic-matrix.md)。
+本台帳把「法規名稱」轉成可被 HLC 模組引用的獨立法律要求。完整法規路由見 [Taiwan Workforce Law Source Catalog](workforce-law-source-catalog.md)，議題覆蓋見 [Taiwan Workforce Legal Topic Matrix](workforce-legal-topic-matrix.md)。
 
 ## 1. 證據契約
 

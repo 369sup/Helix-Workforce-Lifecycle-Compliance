@@ -11,10 +11,10 @@
 
 1. Serena `mem:core` 與延續工作時的 `mem:current_work_state`。
 2. `README.md`。
-3. `docs/governance/workforce-lifecycle-model.md`。
+3. `docs/governance/models/workforce-lifecycle-model.md`。
 4. `docs/modules/<HLC>/README.md` 與該模組必要文件清單。
 5. 與任務相關的 gap、law catalog、topic matrix 與 legal evidence。
-6. `helix-organization-governance-model.md`、`helix-workforce-document-catalog.md` 與 `docs/shared/artifact-governance.md`。
+6. `docs/governance/models/organization-governance-model.md`、`docs/governance/assurance/workforce-artifact-catalog.md` 與 `docs/shared/artifact-governance.md`。
 
 不要先讀完整法規資料庫；依 HLC、topic 及 Evidence ID 漸進讀取。
 

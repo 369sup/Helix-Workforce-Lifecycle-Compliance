@@ -23,4 +23,4 @@
 - 未授權工作必須停止或改由合格人員監督，不得以專案時程豁免。
 - 輸出為可查詢的能力、職級、資格及授權狀態。
 
-Canonical role contract：[Helix Organization Governance Model](../../governance/helix-organization-governance-model.md)。
+Canonical role contract：[Helix Organization Governance Model](../../governance/models/organization-governance-model.md)。

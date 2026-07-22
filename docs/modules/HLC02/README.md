@@ -24,4 +24,4 @@
 - 未具資格、訓練、健康適任或 site clearance 的工作保持 blocked。
 - 輸出為 active relationship、assignment、onboarding work items 與可追溯的未完成補正。
 
-Legal routing：[RECORD／INS／NHI／PENSION／TRIAL／OSH／DATA](../../governance/taiwan-legal-register.md)。
+Legal routing：[RECORD／INS／NHI／PENSION／TRIAL／OSH／DATA](../../governance/legal/workforce-legal-evidence-register.md)。

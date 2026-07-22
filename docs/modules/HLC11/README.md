@@ -22,4 +22,4 @@
 - 復職不是恢復全部權限；依工作、健康、資格、設備與 site 重新 clearance。
 - 輸出為 overlay history、平行 work items、return decision 與 HLC04 assignment input。
 
-Legal routing：[LEAVE／HEALTH／INS／NHI／PENSION／DATA／TRANSFER](../../governance/taiwan-legal-register.md)。
+Legal routing：[LEAVE／HEALTH／INS／NHI／PENSION／DATA／TRANSFER](../../governance/legal/workforce-legal-evidence-register.md)。

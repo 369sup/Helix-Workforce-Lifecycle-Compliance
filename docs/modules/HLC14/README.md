@@ -27,4 +27,4 @@
 - 終止撤回使用 `restore(previous_state_snapshot)` 並建立工資、排班、保險、退休、權限與通知 restoration work items。
 - 再聘建立新 workforce instance；既有案件、紀錄與 legal hold 保持可追溯。
 
-Legal routing：[TERM／SEVERANCE／RETIRE／SERVICE／WAGE／INS／NHI／PENSION／DATA](../../governance/taiwan-legal-register.md)。
+Legal routing：[TERM／SEVERANCE／RETIRE／SERVICE／WAGE／INS／NHI／PENSION／DATA](../../governance/legal/workforce-legal-evidence-register.md)。

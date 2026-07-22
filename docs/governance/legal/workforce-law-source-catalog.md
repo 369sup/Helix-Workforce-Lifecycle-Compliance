@@ -1,11 +1,11 @@
-# Taiwan Workforce Law Catalog
+# Taiwan Workforce Law Source Catalog
 
 > 狀態：Draft
 > 法域：臺灣
 > 查證基準日：2026-07-23
 > 範圍：HLC workforce 的法規級官方來源路由；不是個案法律結論
 
-本 catalog 回答「應檢查哪些官方法源」。只有 [Taiwan Legal Evidence Register](taiwan-legal-register.md) 中的獨立 Evidence ID 能支持具體法律結論。
+本 catalog 回答「應檢查哪些官方法源」。只有 [Taiwan Workforce Legal Evidence Register](workforce-legal-evidence-register.md) 中的獨立 Evidence ID 能支持具體法律結論。
 
 ## 1. 結構化資料契約
 
