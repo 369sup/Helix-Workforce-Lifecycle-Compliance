@@ -1,27 +1,33 @@
-# HLC06 — 試用、績效、改善與申覆
+# HLC06 — 能力基線與公司職級
 
-> Relationship state：`active`
-> Primary authorities：Performance Owner／Performance Governance／Employer Authority
+> Relationship states：active
+> Primary authorities：CoE／Capability／Grade Authority
 
 ## 模組目的
 
-把 Delivery、Capability 與 Conduct 評估分開輸入，經衝突檢查與校準形成一份結果，並保留員工陳述、改善與申覆。
+分開能力標準、初始與定期評估，以及公司職級決定。
 
-## 必要文件
+## Primary Candidate Artifacts
 
-| Artifact ID | 文件 | 類型／簽署 | Owner／Approver | 必要證據 |
-| --- | --- | --- | --- | --- |
-| HX-ART-HLC06-001 | 年度／試用／專案目標版本 | plan／acknowledgement | Performance Owner；Performance Authority | 事前目標、期間、資源、評估者與版本 |
-| HX-ART-HLC06-002 | Delivery、Capability 與 Conduct 評估 Inputs | record／no-signature | Delivery／CoE／Compliance | 具體事實、期間、來源與評核者衝突檢查 |
-| HX-ART-HLC06-003 | 績效校準與單一最終結果 | record／authority-approval | Performance Governance；Performance Authority | 校準、重複處罰檢查、bias review 與 final result |
-| HX-ART-HLC06-004 | Performance Improvement Plan 與員工陳述／申覆 | plan／acknowledgement | Manager／HR；Performance Authority | 標準、支持、期間、回饋、陳述與 review |
-| HX-ART-HLC06-005 | 試用合意延長／持續關係通知 | agreement or notice | HR／Performance；Employer Authority | TW-WF-TRIAL-003–005 與正確簽署模式 |
+| Artifact ID | Artifact | Type | Execution | Trigger | Owner | Approver | Legal Evidence | Classification |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| HX-ART-HLC06-001 | Competency Framework | `standard` | `authority-approval` | HX-TRG-HLC06-001 | CoE | Capability Authority | — | 公司政策選擇 |
+| HX-ART-HLC06-002 | Initial Competency Assessment | `assessment` | `authority-approval` | HX-TRG-HLC06-001 | CoE | Capability Authority | TW-WF-OSH-004 | 個案待法律審查 |
+| HX-ART-HLC06-003 | Periodic Competency Assessment | `assessment` | `authority-approval` | HX-TRG-HLC06-002 | CoE | Capability Authority | TW-WF-OSH-004 | 個案待法律審查 |
+| HX-ART-HLC06-004 | Professional Grade Decision | `decision` | `authority-approval` | HX-TRG-HLC06-003 | CoE HR | Grade Authority | — | 公司政策選擇 |
+
+## Trigger Matrix
+
+| Trigger ID | Event | Required selectors | Timing | Required artifacts | Blocking rule |
+| --- | --- | --- | --- | --- | --- |
+| HX-TRG-HLC06-001 | 建立初始能力基線 | active relationship 且已知角色需求 | 首次授權前 | HX-ART-HLC06-001, HX-ART-HLC06-002 | 職稱不得代替評估 |
+| HX-TRG-HLC06-002 | 定期或事件重評能力 | 到期、任務或事實改變 | 到期或變更前 | HX-ART-HLC06-003 | 過期 assessment 不得沿用 |
+| HX-TRG-HLC06-003 | 評定公司職級 | 完成能力與治理評審 | 職級生效前 | HX-ART-HLC06-004 | 專案角色不得自動變更職級 |
 
 ## Gate 與輸出
 
-- 沒有試用安排時不建立 trial subtype；試用不得降低法定權益。
-- 請假、職災、資源缺失、主管更換或利益衝突須進入 assessment-integrity review。
-- 固定績效權重不屬 canonical；角色方案須另經平等與治理審查。
-- 本模組不得直接把 relationship state 改成 ended；需要終止時只輸出 HLC14 review request。
+- 公司職級、專案角色、資格與技術授權不得互相推定。
+- 每個 trigger 只在 selectors 已知時產出所列 artifacts；未適用須保存理由，blocked 項目須有 Owner 與期限。
+- 文件建立、authority decision、delivery、acknowledgement、bilateral signature 與 external filing 是不同事件，不得用單一完成狀態合併。
 
-Legal routing：[TRIAL／TERM／DATA／COMPLAINT](../../governance/legal/workforce-legal-evidence-register.md)。
+Legal routing：[Taiwan Workforce Legal Evidence Register](../../governance/legal/workforce-legal-evidence-register.md)。

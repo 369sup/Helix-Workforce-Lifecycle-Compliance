@@ -26,8 +26,8 @@ governance/
 | Organization | [Helix Organization Governance Model](models/organization-governance-model.md) | 誰有交付、能力、技術、資源、人事與安全決策權 | 不取代勞動契約或法定職責 |
 | Lifecycle | [Helix Workforce Lifecycle Model](models/workforce-lifecycle-model.md) | 關係狀態、HLC module、assignment、overlay、case 與 work item 如何互動 | 不自動決定法律效果 |
 | Gap | [Helix Workforce Lifecycle Gap Analysis](assurance/workforce-lifecycle-gap-analysis.md) | 哪些設計已採納、哪些仍缺公司事實或落地控制 | 不冒充完成證明 |
-| Artifact | [Helix Workforce Artifact Catalog](assurance/workforce-artifact-catalog.md) | 需要哪些 Candidate policy、procedure、notice、agreement、form、record 或 register | 不代表模板已核准 |
-| Module Package | [HLC Module Index](../modules/README.md) | 每個 HLC 實際需要哪些文件、gate、owner、evidence 與輸出 | 不表示文件已生效 |
+| Artifact | [Helix Workforce Artifact Catalog](assurance/workforce-artifact-catalog.md) | 每種實體 Candidate 文件的 type、execution、trigger、owner、evidence 與狀態 | 不代表模板已核准 |
+| Module Package | [HLC Module Index](../modules/README.md) | 每個頁面邊界如何由情境 trigger 產出確定文件清單 | 不表示文件已生效 |
 | Source | [Taiwan Workforce Law Source Catalog](legal/workforce-law-source-catalog.md) | 應檢查哪些官方法源與 selectors | 不作獨立法律結論 |
 | Routing | [Taiwan Workforce Legal Topic Matrix](legal/workforce-legal-topic-matrix.md) | 法律議題路由到哪些 HLC 與 evidence family | 不證明個案適用 |
 | Evidence | [Taiwan Workforce Legal Evidence Register](legal/workforce-legal-evidence-register.md) | 已查證的獨立義務、狀態、來源、觸發、證據與 unresolved | 不取代個案法律意見 |
@@ -53,13 +53,14 @@ Official source
 
 | Object | Stable ID／Key | 最低必要欄位 |
 | --- | --- | --- |
-| HLC module | `HLC00`–`HLC14` | purpose、allowed states、trigger、decision、evidence、owner、authority、legal IDs |
+| HLC module | `HLC00`–`HLC29` | page boundary、purpose、allowed states、trigger matrix、artifact、owner、authority、legal IDs |
 | Workforce instance | `workforce_instance_id` | employer、relationship type／state、effective dates、history |
 | Helix assignment | `assignment_id` | project／Bench、allocation、eight roles、start／end、escalation |
 | Overlay | `overlay_id` | type、legal basis、start／end、wage／insurance／access／return states |
 | Case | `case_id` | type、intake、conflict route、confidentiality、investigator、findings、decision、follow-up |
 | Work item | `work_item_id` | type、owner、due date、status、evidence、transfer target |
-| Candidate artifact | `HX-ART-*` | HLC、population、type、purpose、signature mode、roles、evidence、status |
+| Candidate artifact | `HX-ART-*` | primary HLC、related HLC、單一 type、單一 execution mode、trigger IDs、roles、evidence、status |
+| Artifact trigger | `HX-TRG-*` | event、required selectors、timing、required artifacts、blocking rule |
 | Gap | `WF-GAP-*` | HLC、risk、decision、evidence、priority、status |
 | Law source | `TW-LAW-*` | authority、type、official source、effective status、selector、HLC、evidence IDs |
 | Legal topic | `TOP-*` | primary HLC、triggers、evidence family、review status |

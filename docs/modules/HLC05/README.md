@@ -1,27 +1,36 @@
-# HLC05 — 在職交付、工時與日常工作指揮
+# HLC05 — Assignment 與角色治理
 
-> Relationship state：`active`
-> Primary authority：Work Priority Owner；Technical／Quality／HSE authorities
+> Relationship states：active
+> Primary authorities：Resource／Project／Employer／Work Priority Authority
 
 ## 模組目的
 
-證明工作由唯一 priority owner 排序，實際工時完整記錄，技術、品質、安全與資源衝突依各自 authority 處理。
+建立 Helix assignment、專案治理與每一類 authority 邊界。
 
-## 必要文件
+## Primary Candidate Artifacts
 
-| Artifact ID | 文件 | 類型／簽署 | Owner／Approver | 必要證據 |
-| --- | --- | --- | --- | --- |
-| HX-ART-HLC05-001 | Work Package／工作分派與優先順序紀錄 | record／no-signature | Work Priority Owner | assignment、工作、owner、期限、介面與優先順序 |
-| HX-ART-HLC05-002 | 出勤、輪班、請假與加班紀錄 | record／authority-approval | Delivery／HR／Payroll；Time Authority | 實際分鐘、請假、加班、核准、補登與工資輸入 |
-| HX-ART-HLC05-003 | Design Review、TQ、Deviation／Waiver 與 Technical Hold | record／authority-approval | Technical Authority；Authorization Authority | basis、審查、偏離、hold、升級與 release |
-| HX-ART-HLC05-004 | Quality NCR、HSE Inspection 與 Incident Record | record／authority-approval | Quality／HSE；各 Authority | 缺失、即時措施、原因、矯正、驗證與通報判斷 |
-| HX-ART-HLC05-005 | Resource Conflict Escalation | record／authority-approval | Resource Governance；Resource Authority | 多案需求、capacity、衝突、決定與通知 |
+| Artifact ID | Artifact | Type | Execution | Trigger | Owner | Approver | Legal Evidence | Classification |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| HX-ART-HLC05-001 | Initial Helix Assignment Authorization | `authorization` | `authority-approval` | HX-TRG-HLC05-001 | HR Resource | Employer Authority | — | 公司政策選擇 |
+| HX-ART-HLC05-002 | Project Assignment Request | `form` | `submission` | HX-TRG-HLC05-002 | Delivery Resource | Resource Authority | TW-WF-TRANSFER-001 | 個案待法律審查 |
+| HX-ART-HLC05-003 | Project Assignment Decision | `decision` | `authority-approval` | HX-TRG-HLC05-002 | Resource Governance | Employer Authority | TW-WF-TRANSFER-001 | 個案待法律審查 |
+| HX-ART-HLC05-004 | Project Assignment Notice | `notice` | `acknowledgement` | HX-TRG-HLC05-002 | HR Resource | Employer Authority | TW-WF-TRANSFER-001,TW-WF-TIME-001 | 個案待法律審查 |
+| HX-ART-HLC05-005 | Project Organization Plan | `plan` | `authority-approval` | HX-TRG-HLC05-003 | Project Governance | Project Authority | — | 公司政策選擇 |
+| HX-ART-HLC05-006 | Project RACI Matrix | `register` | `authority-approval` | HX-TRG-HLC05-003 | Project Governance | Project Authority | — | 公司政策選擇 |
+| HX-ART-HLC05-007 | Project Decision Rights Register | `register` | `authority-approval` | HX-TRG-HLC05-003 | Project Governance | Project Authority | — | 公司政策選擇 |
+
+## Trigger Matrix
+
+| Trigger ID | Event | Required selectors | Timing | Required artifacts | Blocking rule |
+| --- | --- | --- | --- | --- | --- |
+| HX-TRG-HLC05-001 | 建立初始 Helix assignment | active relationship 且工作可指派 | 工作指派前 | HX-ART-HLC05-001 | 八類角色或 Priority Owner 缺失 |
+| HX-TRG-HLC05-002 | 提出或核准 project assignment | active relationship、capacity、角色與期間已知 | 工作分派前 | HX-ART-HLC05-002, HX-ART-HLC05-003, HX-ART-HLC05-004 | Priority Owner 或 Employer 缺失 |
+| HX-TRG-HLC05-003 | 建立 project governance | 專案交付介面與 authority 已知 | 專案啟動前 | HX-ART-HLC05-005, HX-ART-HLC05-006, HX-ART-HLC05-007 | 不得取代 Employer 或 HSE authority |
 
 ## Gate 與輸出
 
-- CoE、客戶及第二專案的工作都必須經現行 Priority Owner／Resource Governance 排序。
-- 實際工時不能因缺少事前核准而不記錄；給付與程序依法律 evidence 分別判斷。
-- Technical Hold 與安全 stop-work 不得被專案成本或進度否決。
-- 輸出為交付、工時、技術、品質、安全與資源決定的 evidence chain。
+- Employer、Priority Owner、Technical、HSE 與 Delivery authority 不得合併推定。
+- 每個 trigger 只在 selectors 已知時產出所列 artifacts；未適用須保存理由，blocked 項目須有 Owner 與期限。
+- 文件建立、authority decision、delivery、acknowledgement、bilateral signature 與 external filing 是不同事件，不得用單一完成狀態合併。
 
-Legal routing：[TIME／WAGE／RECORD／OSH／COMPLAINT](../../governance/legal/workforce-legal-evidence-register.md)。
+Legal routing：[Taiwan Workforce Legal Evidence Register](../../governance/legal/workforce-legal-evidence-register.md)。

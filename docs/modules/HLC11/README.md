@@ -1,25 +1,32 @@
-# HLC11 — 留停、職災醫療及其他暫停 Overlay
+# HLC11 — 工作排序與資源衝突
 
-> Relationship state：通常維持 `active`
-> Primary authorities：HR／HSE／Case／Payroll／IT／Resource authorities
+> Relationship states：active
+> Primary authorities：Work Priority／Delivery／Resource Authority
 
 ## 模組目的
 
-在不終止 relationship 的情況下，管理育嬰留停、職災醫療、兵役、長期病假、個人留停或調查暫時措施的平行狀態。
+建立 work package、唯一 Priority Owner，以及跨需求資源衝突的升級與決定。
 
-## 必要文件
+## Primary Candidate Artifacts
 
-| Artifact ID | 文件 | 類型／簽署 | Owner／Approver | 必要證據 |
-| --- | --- | --- | --- | --- |
-| HX-ART-HLC11-001 | Suspension Overlay Request／Decision | form／authority-approval | HR／Case／HSE；相應 Authority | type、legal basis、申請／事件、起訖與決定 |
-| HX-ART-HLC11-002 | Overlay Status、保險／退休／權限／資產 Work Items | register／authority-approval | HR／IT／Asset／Payroll | wage、insurance、pension、assignment、access、asset、contact 與 review date |
-| HX-ART-HLC11-003 | 復職通知、健康適任與 Return Clearance | checklist／authority-approval | HR／HSE／Resource；相應 Authority | return date、fitness、adjustment、資格、權限與新 assignment |
+| Artifact ID | Artifact | Type | Execution | Trigger | Owner | Approver | Legal Evidence | Classification |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| HX-ART-HLC11-001 | Work Package Record | `record` | `no-signature` | HX-TRG-HLC11-001 | Work Priority Owner | Delivery Authority | — | 公司政策選擇 |
+| HX-ART-HLC11-002 | Work Priority Decision | `decision` | `authority-approval` | HX-TRG-HLC11-001 | Work Priority Owner | Delivery Authority | TW-WF-TIME-001 | 公司政策選擇 |
+| HX-ART-HLC11-003 | Resource Conflict Request | `form` | `submission` | HX-TRG-HLC11-002 | Delivery Resource | Resource Authority | TW-WF-TIME-001 | 公司政策選擇 |
+| HX-ART-HLC11-004 | Resource Conflict Decision | `decision` | `authority-approval` | HX-TRG-HLC11-002 | Resource Governance | Resource Authority | TW-WF-TIME-001 | 公司政策選擇 |
+
+## Trigger Matrix
+
+| Trigger ID | Event | Required selectors | Timing | Required artifacts | Blocking rule |
+| --- | --- | --- | --- | --- | --- |
+| HX-TRG-HLC11-001 | 建立 work package 或排序 | 有效 assignment 與唯一 Priority Owner | 工作開始前 | HX-ART-HLC11-001, HX-ART-HLC11-002 | 工時、安全或權限限制未處理 |
+| HX-TRG-HLC11-002 | 發生資源 priority conflict | 兩個以上 demand 競逐同一 capacity | 工作指令衝突時 | HX-ART-HLC11-003, HX-ART-HLC11-004 | 不得由多個主管各自插單 |
 
 ## Gate 與輸出
 
-- 不同 overlay type 的工資、勞保／就保／職災保險／健保、退休、權限與聯絡規則分開，不用單一 suspension status 推定；健保留停與復職另依 TW-WF-NHI-002 建立申報 work item。
-- 健康及案件資料分流，Delivery／CoE 只取得必要工作限制。
-- 復職不是恢復全部權限；依工作、健康、資格、設備與 site 重新 clearance。
-- 輸出為 overlay history、平行 work items、return decision 與 HLC04 assignment input。
+- CoE、客戶或多個主管不得繞過唯一 Work Priority Owner 插單。
+- 每個 trigger 只在 selectors 已知時產出所列 artifacts；未適用須保存理由，blocked 項目須有 Owner 與期限。
+- 文件建立、authority decision、delivery、acknowledgement、bilateral signature 與 external filing 是不同事件，不得用單一完成狀態合併。
 
-Legal routing：[LEAVE／HEALTH／INS／NHI／PENSION／DATA／TRANSFER](../../governance/legal/workforce-legal-evidence-register.md)。
+Legal routing：[Taiwan Workforce Legal Evidence Register](../../governance/legal/workforce-legal-evidence-register.md)。

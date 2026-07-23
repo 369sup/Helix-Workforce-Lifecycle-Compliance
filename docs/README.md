@@ -1,7 +1,7 @@
 # Helix-Workforce-Lifecycle-Compliance Documentation Tree
 
 > 狀態：Draft
-> Canonical lifecycle：HLC00–HLC14
+> Canonical lifecycle：HLC00–HLC29
 
 本目錄把組織治理、生命週期模組、法律來源、法律證據與 Candidate 文件分開管理。所有文件都是空白治理設計，不得填入具名 workforce 資料。
 
@@ -40,7 +40,8 @@ docs/
     ├── HLC11/README.md
     ├── HLC12/README.md
     ├── HLC13/README.md
-    └── HLC14/README.md
+    ├── ...
+    └── HLC29/README.md
 ```
 
 ## 閱讀順序
@@ -56,6 +57,6 @@ docs/
 
 - `governance/` 定義 canonical 模型、法源與 evidence。
 - `enterprise/` 定義跨 HLC 的公司治理文件。
-- `modules/` 定義每個 HLC 所需文件、gate、owner、evidence 與輸出。
-- `shared/` 定義所有 Candidate artifact 共用的版本、簽署、核准與紀錄規則。
+- `modules/` 的每個目錄都是一個可發布頁面，定義單一業務邊界、Trigger Matrix、必要文件與 gate。
+- `shared/` 定義所有 Candidate artifact 共用的原子化、type、execution、版本、核准與紀錄規則。
 - 正式模板只能在公司 selector、owner、法律／專業審查及核准完成後建立。

@@ -1,25 +1,36 @@
-# HLC12 — 專案結案、釋放、Bench 與再配置
+# HLC12 — 技術交付控制
 
-> Relationship state：`active`
-> Primary authorities：Delivery／CoE／Resource／HR／Project and Resource Authorities
+> Relationship states：active
+> Primary authorities：Technical／Authorization／Delivery Authority
 
 ## 模組目的
 
-關閉專案 assignment 與客戶存取，保存交付及能力輸入，並為下一派任或 Bench 建立合法且可檢查的工作安排。
+處理設計審查、technical query、deviation、technical hold 及 release。
 
-## 必要文件
+## Primary Candidate Artifacts
 
-| Artifact ID | 文件 | 類型／簽署 | Owner／Approver | 必要證據 |
-| --- | --- | --- | --- | --- |
-| HX-ART-HLC12-001 | Project Release、結案績效與 Lessons Learned | record／authority-approval | Delivery／CoE；Project Authority | release date、交付 feedback、能力 input、knowledge 與 handover |
-| HX-ART-HLC12-002 | 專案文件、資產、客戶權限與資料交接 | work-item register／authority-approval | Project／IT／Data；各 Authority | access removal、asset、document、confidential data、retention 與 legal hold |
-| HX-ART-HLC12-003 | Bench 任務、再配置搜尋與定期 Review | plan／acknowledgement | Resource／CoE／HR；Resource Authority | 工資、工時、合法任務、訓練、職缺搜尋、review date 與 next action |
+| Artifact ID | Artifact | Type | Execution | Trigger | Owner | Approver | Legal Evidence | Classification |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| HX-ART-HLC12-001 | Design Review Record | `record` | `authority-approval` | HX-TRG-HLC12-001 | Technical Reviewer | Technical Authority | TW-WF-OSH-004 | 個案待法律審查 |
+| HX-ART-HLC12-002 | Technical Query Record | `record` | `no-signature` | HX-TRG-HLC12-002 | Delivery Technical | Technical Authority | — | 公司政策選擇 |
+| HX-ART-HLC12-003 | Technical Deviation Request | `form` | `submission` | HX-TRG-HLC12-003 | Delivery Technical | Technical Authority | TW-WF-OSH-001 | 個案待法律審查 |
+| HX-ART-HLC12-004 | Technical Deviation Decision | `decision` | `authority-approval` | HX-TRG-HLC12-003 | Technical Authority | Authorization Authority | TW-WF-OSH-001,TW-WF-OSH-003 | 個案待法律審查 |
+| HX-ART-HLC12-005 | Technical Hold Decision | `decision` | `authority-approval` | HX-TRG-HLC12-004 | Technical HSE | Authorization Authority | TW-WF-OSH-003 | 個案待法律審查 |
+| HX-ART-HLC12-006 | Technical Hold Release Decision | `decision` | `authority-approval` | HX-TRG-HLC12-004 | Technical HSE | Authorization Authority | TW-WF-OSH-003 | 個案待法律審查 |
+
+## Trigger Matrix
+
+| Trigger ID | Event | Required selectors | Timing | Required artifacts | Blocking rule |
+| --- | --- | --- | --- | --- | --- |
+| HX-TRG-HLC12-001 | 執行設計審查 | design deliverable 到達 review gate | 發布前 | HX-ART-HLC12-001 | 未授權 reviewer |
+| HX-TRG-HLC12-002 | 提出 technical query | 設計或執行資訊不明 | 決定前 | HX-ART-HLC12-002 | 不得用口頭答覆繞過版本 |
+| HX-TRG-HLC12-003 | 提出或核准 deviation | 擬偏離核准標準或 design basis | 偏離前 | HX-ART-HLC12-003, HX-ART-HLC12-004 | 法令、安全或授權邊界不得豁免 |
+| HX-TRG-HLC12-004 | 發出或解除 technical hold | 存在合法 basis 或補正完成 | 立即或復工前 | HX-ART-HLC12-005, HX-ART-HLC12-006 | 解除 authority 不足 |
 
 ## Gate 與輸出
 
-- Project end 只關閉 assignment，不把 relationship state 改為 ended。
-- Bench 期間維持適用勞動條件，不得停薪、強迫請假、虛構低績效或無限期排除。
-- 新專案進入 HLC04；職務／地點重大變更另開 HLC08。
-- 確實需要終止時只輸出 HLC14 review request，並保存適當工作搜尋 evidence。
+- 法令、安全、標準、design basis 或授權邊界不得由成本與時程豁免。
+- 每個 trigger 只在 selectors 已知時產出所列 artifacts；未適用須保存理由，blocked 項目須有 Owner 與期限。
+- 文件建立、authority decision、delivery、acknowledgement、bilateral signature 與 external filing 是不同事件，不得用單一完成狀態合併。
 
-Legal routing：[TIME／TRANSFER／TERM／DATA／TRADE](../../governance/legal/workforce-legal-evidence-register.md)。
+Legal routing：[Taiwan Workforce Legal Evidence Register](../../governance/legal/workforce-legal-evidence-register.md)。

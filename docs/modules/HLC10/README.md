@@ -1,26 +1,36 @@
-# HLC10 — 職場事件、申訴、調查與紀律
+# HLC10 — 工時、出勤、請假與加班
 
-> Relationship states：`candidate` 至 `ended` 均可適用
-> Primary authorities：Independent Case Owner／Investigator／Case and Decision Authorities
+> Relationship states：active
+> Primary authorities：Time／HR／Delivery／Employer Authority
 
 ## 模組目的
 
-建立獨立於被申訴管理線的受理、分類、迴避、暫時措施、調查、決定、申復與禁止報復流程。
+分開排班、實際出勤、請假申請與決定，以及加班申請、決定與事實。
 
-## 必要文件
+## Primary Candidate Artifacts
 
-| Artifact ID | 文件 | 類型／簽署 | Owner／Approver | 必要證據 |
-| --- | --- | --- | --- | --- |
-| HX-ART-HLC10-001 | 多通路申訴／通報 Intake 與 Conflict Check | case-record／no-signature | Independent Case Owner | 受理、緊急性、保密、分類、被申訴人與替代路徑 |
-| HX-ART-HLC10-002 | 調查通知、訪談、證據清冊與迴避紀錄 | case-record／acknowledgement | Investigator；Case Authority | scope、程序、陳述、證據、迴避、存取與時間軸 |
-| HX-ART-HLC10-003 | 調查 Findings、處理／懲戒與申復決定 | case-record／authority-approval | Decision Authority | 事實、適用規則、比例、決定、通知與申復 |
-| HX-ART-HLC10-004 | Interim Measures 與 Anti-retaliation Follow-up | plan／authority-approval | Case／HR／HSE；Case Authority | 接觸、工作、安全、權限、保護與後續 adverse-action review |
+| Artifact ID | Artifact | Type | Execution | Trigger | Owner | Approver | Legal Evidence | Classification |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| HX-ART-HLC10-001 | Shift Schedule Notice | `notice` | `delivery-receipt` | HX-TRG-HLC10-001 | Delivery HR | Time Authority | TW-WF-TIME-001 | 個案待法律審查 |
+| HX-ART-HLC10-002 | Attendance Record | `record` | `no-signature` | HX-TRG-HLC10-001 | Delivery HR | Time Authority | TW-WF-RECORD-002,TW-WF-TIME-001 | 依法必須 |
+| HX-ART-HLC10-003 | Leave Request | `form` | `submission` | HX-TRG-HLC10-002 | Employee | HR Authority | TW-WF-LEAVE-001 | 個案待法律審查 |
+| HX-ART-HLC10-004 | Leave Decision | `decision` | `authority-approval` | HX-TRG-HLC10-002 | HR | Employer Authority | TW-WF-LEAVE-001 | 個案待法律審查 |
+| HX-ART-HLC10-005 | Overtime Request | `form` | `submission` | HX-TRG-HLC10-003 | Delivery Owner | Time Authority | TW-WF-TIME-002 | 個案待法律審查 |
+| HX-ART-HLC10-006 | Overtime Decision | `decision` | `authority-approval` | HX-TRG-HLC10-003 | Time Authority | Employer Authority | TW-WF-TIME-002 | 個案待法律審查 |
+| HX-ART-HLC10-007 | Overtime Work Record | `record` | `no-signature` | HX-TRG-HLC10-003 | Delivery HR | Time Authority | TW-WF-TIME-001,TW-WF-WAGE-001 | 依法必須 |
+
+## Trigger Matrix
+
+| Trigger ID | Event | Required selectors | Timing | Required artifacts | Blocking rule |
+| --- | --- | --- | --- | --- | --- |
+| HX-TRG-HLC10-001 | 建立排班與出勤事實 | 受僱者執行工作 | 排班前及工作發生時 | HX-ART-HLC10-001, HX-ART-HLC10-002 | 不得由計畫工時覆蓋實際工時 |
+| HX-TRG-HLC10-002 | 申請或決定請假 | 請假事件發生 | 依適用時點 | HX-ART-HLC10-003, HX-ART-HLC10-004 | 法定權利不得以未核准任意消滅 |
+| HX-TRG-HLC10-003 | 申請或執行加班 | 超出正常工時之工作需求 | 工作前及工作後 | HX-ART-HLC10-005, HX-ART-HLC10-006, HX-ART-HLC10-007 | 實際工作仍須記錄與給付 |
 
 ## Gate 與輸出
 
-- 同一事件可同時分類性騷擾、霸凌、職安、歧視或一般申訴，不強迫單選。
-- 最高負責人、People Manager、Delivery Manager 或 Case role 涉案時走替代／外部路徑。
-- 暫時措施不得預判責任，也不得形成報復或不必要的不利變更。
-- Case 不因離職自動結案；輸出包括 findings、decision、appeal、follow-up、retention 與 legal hold。
+- 計畫或核准紀錄不得覆蓋實際工作事實與法定權利。
+- 每個 trigger 只在 selectors 已知時產出所列 artifacts；未適用須保存理由，blocked 項目須有 Owner 與期限。
+- 文件建立、authority decision、delivery、acknowledgement、bilateral signature 與 external filing 是不同事件，不得用單一完成狀態合併。
 
-Legal routing：[COMPLAINT／HARASS／BULLY／OSH／DATA](../../governance/legal/workforce-legal-evidence-register.md)。
+Legal routing：[Taiwan Workforce Legal Evidence Register](../../governance/legal/workforce-legal-evidence-register.md)。

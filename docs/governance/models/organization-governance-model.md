@@ -80,7 +80,7 @@ legal_review_status:
 2. 每個有效 assignment 必須有一個 `work_priority_owner_role`。
 3. 同一人可配置多專案，但每個工作包須有單一 priority owner；跨專案衝突由 Resource Governance 決定，不能讓個別主管直接競逐員工時間。
 4. People Manager、Delivery Manager 或 Technical Authority 可由同一人兼任，但必須記錄兼任、權限來源、利益衝突及替代升級路徑。
-5. assignment 不得自行改變工資、工時、工作地點、雇主法人或其他勞動條件；涉及變更時進入 HLC08 gate。
+5. assignment 不得自行改變工資、工時、工作地點、雇主法人或其他勞動條件；涉及變更時進入 HLC09 gate。
 
 ## 4. 角色權限邊界
 
@@ -124,11 +124,11 @@ version:
 | 技術偏離 | 授權 Technical Authority | 偏離內容、風險、補償措施、專案影響 |
 | 職業安全停止工作 | 法定或授權 HSE Authority | 即時危害事實；不得等待成本核准 |
 | 專業能力／授權 | CoE / Technical Authorization Authority | 評估、資格、經驗、期限與限制 |
-| 跨專案配置 | Resource Governance Authority | 需求、容量、員工條件、HLC08 gate |
+| 跨專案配置 | Resource Governance Authority | 需求、容量、員工條件、HLC09 gate |
 | 績效最終結果 | 指定 Performance Authority | Delivery、CoE、行為輸入及校準 |
 | 調薪／晉升 | Employer Compensation Authority | 績效、職級、薪酬與平等 review |
 | 調查與懲戒 | 指定 Employer Authority | 獨立調查、迴避、工作規則及法律 review |
-| 終止／退休決定 | 法定或授權 Employer Authority | HLC13／HLC14 path、法律與費用 review |
+| 終止／退休決定 | 法定或授權 Employer Authority | HLC24／HLC25／HLC26 path、法律與費用 review |
 
 ## 6. Technical Hold / Veto Contract
 
@@ -160,11 +160,11 @@ evidence_refs:
 - Conduct input：誠信、法遵、尊重職場、通報合作及禁止報復。
 - 最終結果只能有一份，由明定 Performance Authority 經校準後作成；同一事實不得由兩條線重複處罰。
 - 權重屬公司政策選擇，不在本模型設定固定百分比。
-- 績效、能力不足、技術授權撤銷或單一專案負評不得自動產生 HLC14 終止結果。
+- 績效、能力不足、技術授權撤銷或單一專案負評不得自動產生 HLC25 終止結果。
 
 ## 8. Project Release and Bench
 
-專案結案只終止 assignment，不終止實際僱傭或合作關係。HLC12 應平行處理：
+專案結案只終止 assignment，不終止實際僱傭或合作關係。HLC23 應平行處理：
 
 - 專案交付與文件完成；
 - 客戶／專案權限撤銷；
@@ -173,7 +173,7 @@ evidence_refs:
 - 能力及可用性更新；
 - 新配置搜尋；
 - Bench 期間的合法工作、訓練、投標、標準化或改善項目；
-- 定期 review 及 HLC08／HLC13／HLC14 gate。
+- 定期 review 及 HLC09／HLC24／HLC25 gate。
 
 Bench 不得自動表示停薪、強迫請假、低績效、放棄工作權或關係結束。
 

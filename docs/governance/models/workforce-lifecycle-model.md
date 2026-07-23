@@ -3,7 +3,7 @@
 > 狀態：Draft
 > 架構決策日：2026-07-23
 > 適用範圍：臺灣機電、起重、EPC、營造、設備與工程整合 workforce 文件治理
-> Canonical scope：HLC00–HLC14、relationship state、module、overlay、case、assignment 與 work item
+> Canonical scope：HLC00–HLC29、relationship state、module、overlay、case、assignment 與 work item
 
 > [!IMPORTANT]
 > HLC 是治理模組，不是法律結論或自動決策器。本模型不保存具名人事資料，不以文件簽收取代法定程序，也不自動決定契約成立、試用結果、調動、懲戒、終止、退休或再聘。
@@ -16,14 +16,14 @@
 
 1. `relationship_type`：實際勞動、派遣、承攬、顧問、實習或其他關係。
 2. `relationship_state`：關係的核心狀態。
-3. `hlc_module_instance`：HLC00–HLC14 中正在處理的流程模組；可並行或重入。
+3. `hlc_module_instance`：HLC00–HLC29 中正在處理的治理模組；可並行或重入。
 4. `helix_assignment`：雇主、CoE、專案、工作排序、技術與安全權限。
 5. `lifecycle_overlay`：留停、職災醫療、長期病假或暫時措施。
 6. `lifecycle_event`：Offer、工作開始、績效、事故、調動、通報或終止等事件。
 7. `case_instance`：申訴、調查、職災、紀律、法律或資料事件案件。
 8. `parallel_work_item`：Onboarding、回復、派任、結清或資料處置待辦。
 
-HLC03–HLC12 不是互斥階段。職員可同時存在有效專案派任、訓練、績效評估、健康事件及申訴案件；不得以單一「目前 HLC」覆蓋其他模組。
+HLC05–HLC23 不是互斥階段。職員可同時存在有效專案派任、訓練、績效評估、健康事件及申訴案件；不得以單一「目前 HLC」覆蓋其他模組。HLC ID 同時是 docs 的穩定頁面識別碼，編號順序只提供導覽，不表示法律或作業上的固定 transition。
 
 ## 2. Relationship Types
 
@@ -37,7 +37,7 @@ HLC03–HLC12 不是互斥階段。職員可同時存在有效專案派任、訓
 | 獨立承攬人／顧問 | 從屬性、設備成本、成果風險與報酬 | 契約標題不控制實質關係 |
 | 實習／見習／訓練人員 | 教育目的、工作內容、報酬、年齡與指揮事實 | 依實質關係與特殊法規分支 |
 
-關係在 HLC00、HLC01、HLC02、HLC08 及實際履行改變時重新檢查，保存原分類、事實、effective date 與 remediation work items。
+關係在 HLC00、HLC02、HLC04、HLC09 及實際履行改變時重新檢查，保存原分類、事實、effective date 與 remediation work items。
 
 ## 3. Relationship State Contract
 
@@ -64,12 +64,12 @@ relationship_state:
 | offer_pending | 拒絕／撤回／失效 | ended | 結果、版本、期限、通知及法律 review |
 | pre_start | 實際關係開始 | active | contract start、actual work start、必要 clearance 與開始證據 |
 | pre_start | 開始取消 | ended | 取消依據、通知、已成立權利義務 review 及資料處理 |
-| active | 自請離職或雇主終止／退休程序啟動 | termination_pending | HLC13／HLC14 path、previous snapshot 及法律 review |
+| active | 自請離職、雇主終止、退休或合意終止程序啟動 | termination_pending | HLC24／HLC25／HLC26 path、previous snapshot 及法律 review |
 | termination_pending | 終止撤回／取消 | restore(previous_state_snapshot) | 撤回決定與 restoration work items |
 | termination_pending | 關係終止生效 | ended | 法律／契約依據、核准、通知及 effective date |
 | ended | 再聘／再合作需求 | 新 planning 或 candidate instance | 新 workforce instance；原 instance 不重開 |
 
-`restore(previous_state_snapshot)` 是唯一動態 relationship target。關係終止與 closeout 完成是不同事件；ended 後仍可存在 HLC10 case、職災、爭議、legal hold 或 post-employment work item。
+`restore(previous_state_snapshot)` 是唯一動態 relationship target。關係終止與 closeout 完成是不同事件；ended 後仍可存在 HLC18–HLC20 case、職災、爭議、legal hold 或 post-employment work item。
 
 ## 4. HLC Module Contract
 
@@ -97,36 +97,54 @@ unresolved_questions:
 
 相同 HLC 可重入，但每個 instance 必須有新 ID；不得覆寫既有決定、日期或 evidence。
 
-## 5. HLC00–HLC14 Modules
+## 5. HLC00–HLC29 Modules
 
-| HLC | Module / Boundary | Allowed Relationship State | Required Decisions | Minimum Outputs | Owner / Approver | Legal Evidence |
-| --- | --- | --- | --- | --- | --- | --- |
-| HLC00 | 人力規劃、職缺與招募；不作契約承諾 | planning、candidate | 永久能力或專案需求、用工方式、職務／危害／資格、CoE、預算、甄選與資料處理 | 需求、職務範圍、關係初評、招募與結案 evidence | Business／Resource／Recruitment；授權 Approver | RECRUIT、REL、TERM-TYPE、DATA evidence |
-| HLC01 | 錄取、契約與開始前條件；提案接受不等於實際開始 | offer_pending、pre_start | 雇主、關係、條件、有效期、接受、clearance、開始取消或延後 | Offer／合作版本、接受、relationship／identity／eligibility／contract／payroll／insurance／retirement／fitness／qualification／site／data clearance | Employer／HR／Procurement；授權 Approver | OFFER、CONTRACT、REL、DATA evidence |
-| HLC02 | 到職、Onboarding 與初始 Helix 配置；不是轉正 | pre_start、active | contract start、actual work start、administrative completion、保險／退休／名卡、初始 assignment、權限、資產、訓練 | 三類開始日期、onboarding work items、初始 Helix assignment 與未完成 blocker | HR／Site／IT／Asset；Employer Approver | RECORD、INS、PENSION、OSH、DATA evidence |
-| HLC03 | 能力基線、公司職級與技術授權；三者不得互相自動推導 | active | 能力等級、資格、授權範圍、限制、到期、複核、暫停／撤銷 | competency assessment、grade decision、authorization record、expiry controls | CoE／Technical Authority | COMPETENCY、OSH／專業資格 evidence |
-| HLC04 | 專案派任、配置與工地動員；派任不是新僱傭關係 | active | 專案角色、比例、工作排序者、地點、工時、津貼、技術／site authority、客戶規則、HLC08 gate | helix_assignment、project role、mobilization／site clearance、access evidence | Resource／Delivery／Site；Employer／Project Approver | ASSIGN、TIME、OSH、DATA evidence |
-| HLC05 | 在職交付、工時與日常工作指揮 | active | 工作包、優先順序、出勤、加班、品質、技術問題、偏離、安全與資源衝突 | work package、attendance、overtime、review／deviation、HSE 與 escalation evidence | Work Priority Owner；相應 Authority | WAGE、TIME、OSH、RECORD evidence |
-| HLC06 | 試用、績效、改善與申覆；不得直接產生終止 | active | 試用適用性、目標、期間、Delivery／Capability／Conduct inputs、資源、回饋、衝突、改善、申覆與校準 | objective version、assessment inputs、single final result、appeal／review evidence | Performance Owner；Performance Authority | TRIAL、PERF、EQUAL、TERM evidence |
-| HLC07 | 調薪、晉升、職級與職涯；通知與同意分開 | active | 薪酬、職級、角色、授權與是否變更勞動條件 | calibration、decision、notice／agreement、effective date | Compensation／CoE；Employer Authority | WAGE、EQUAL、CONTRACT evidence |
-| HLC08 | 跨專案調動、借調及工作條件變更 | active | change type、雇主法人、工資／工時／地點、期間、回復、不利益、能力、安全及合意／通知 | before／after version、employee input、legal gate、new assignment、remediation items | HR／Resource；Employer Authority | TRANSFER、CONTRACT、INS、PENSION、OSH evidence |
-| HLC09 | 訓練、證照、續證與人才發展 | active | 法定／必要／一般／高額專門訓練分類、費用、工時、資格、到期、最低服務年限 gate | training requirement、attendance、assessment、qualification、agreement if lawful | CoE／HSE／Training；授權 Approver | TRAIN、CONTRACT、OSH evidence |
-| HLC10 | 職場事件、申訴、調查、性騷擾、霸凌、紀律與禁止報復 | candidate、offer_pending、pre_start、active、termination_pending、ended | intake、conflict routing、保密、暫時措施、調查、外部路徑、決定、申復與反報復 follow-up | case instance、evidence index、findings、decision、notification、retention | Independent Case Owner；Decision Authority | SPEAKUP、HARASS、BULLY、DISCIPLINE、DATA evidence |
-| HLC11 | 留停、職災醫療、長期病假、兵役或調查暫時措施 overlay | active、termination_pending | overlay 類型、工資、保險、退休、權限、資產、接觸、複核、復職與適任 | suspension overlay、review、return clearance、restoration evidence | HR／Case／HSE；相應 Authority | LEAVE、INJURY、INS、PENSION、DATA evidence |
-| HLC12 | 專案結案、釋放、Bench 與再配置；不自動終止關係 | active | assignment release、交接、權限撤銷、feedback、可用性、新配置、Bench 工作與 review | release、handover、access removal、bench work items、reassignment search | Delivery／Resource／CoE；Resource Authority | ASSIGN、TRANSFER、TIME、TERM evidence |
-| HLC13 | 自請離職；意思表示、預告與撤回個案分開 | active、termination_pending、ended | 意思表示、最後工作日、預告、撤回、工作免除、共同 closeout 與 post-employment items | resignation event、last-day decision、notice／receipt、closeout evidence | HR／Employer；授權 Approver | RESIGN、SERVICE、CLOSEOUT、DATA evidence |
-| HLC14 | 資遣、解僱、退休、共同離場與離職後義務 | active、termination_pending、ended | termination path、事由、保護、安置、預告、費用、通報、退休、closeout、競業、保存／legal hold | legal review、decision、notification、parallel closeout、post-employment disposition | HR／Legal／Employer；法定或授權 Authority | TERM、SEVERANCE、RETIRE、SERVICE、POST evidence |
+本表只定義穩定頁面邊界；每頁的 Trigger Matrix 與 atomic artifacts 見 [HLC Module Index](../../modules/README.md)。
+
+| HLC | Page Boundary | Allowed Relationship State | Primary Authority |
+| --- | --- | --- | --- |
+| HLC00 | 人力需求與職位治理 | planning | Business／Resource／Employer |
+| HLC01 | 招募、甄選與候選人結案 | candidate | Recruitment／Hiring／Data |
+| HLC02 | Offer 與契約成立 | candidate、offer_pending、pre_start | Employer／HR／Contract |
+| HLC03 | 開始前法定與風險 Clearance | offer_pending、pre_start | HR／HSE／Technical／Data |
+| HLC04 | 實際開始與行政 Onboarding | pre_start、active | Employer／HR／Payroll／IT |
+| HLC05 | Assignment 與角色治理 | active | Resource／Project／Employer |
+| HLC06 | 能力基線與公司職級 | active | Capability／Grade |
+| HLC07 | 技術授權生命週期 | active | Technical／Authorization |
+| HLC08 | 工地動員、危害與專案存取 | active | Site／HSE／Technical／Data |
+| HLC09 | 派任條件、調動與工作條件變更 | active | HR／Resource／Employer |
+| HLC10 | 工時、出勤、請假與加班 | active | Time／HR／Employer |
+| HLC11 | 工作排序與資源衝突 | active | Work Priority／Resource |
+| HLC12 | 技術交付控制 | active | Technical／Authorization |
+| HLC13 | 品質、HSE 檢查與事件 | active | Quality／HSE／Employer |
+| HLC14 | 績效目標、評估與改善 | active | Performance／Appeal |
+| HLC15 | 試用約定、評估、延長與結果 | offer_pending、pre_start、active | HR／Performance／Employer |
+| HLC16 | 晉升、職級、薪酬與職涯變動 | active | Promotion／Grade／Compensation |
+| HLC17 | 訓練、發展與資格證照 | active | Training／Technical／HSE |
+| HLC18 | 案件受理、分類與獨立路由 | 所有 state | Independent Case／HSE |
+| HLC19 | 調查、證據與暫時措施 | 所有 state | Investigator／Independent Case |
+| HLC20 | 案件決定、申復與反報復 | 所有 state | Decision／Appeal／Independent Case |
+| HLC21 | 關係暫停 Overlay | active、termination_pending | HR／Case／HSE |
+| HLC22 | 復職、復工與狀態恢復 | active、termination_pending | HR／Health／HSE／Resource |
+| HLC23 | 專案釋放、Bench 與再配置 | active | Delivery／Resource／CoE |
+| HLC24 | 自請離職表示與生效 | active、termination_pending | Employee／HR／Employer |
+| HLC25 | 雇主終止審查與決定 | active、termination_pending | Employer／HR／Legal |
+| HLC26 | 退休與合意終止 | active、termination_pending | Employer／HR／Legal |
+| HLC27 | 關係結清、申報與 Closeout | termination_pending、ended | HR／Payroll／IT／Data |
+| HLC28 | 離職後請求、義務與保存 | ended | HR／Legal／Data |
+| HLC29 | 再聘與新 Workforce Instance | ended、planning、candidate | Hiring／HR／Employer |
 
 ## 6. Module Concurrency Rules
 
-- HLC00→HLC01→HLC02 是一般入口導航；Offer 結案可在 HLC00／HLC01 結束未開始的 instance。
-- HLC02 建立 `active` 後，可依事件並行開啟 HLC03–HLC12；沒有固定 HLC03→HLC04→…→HLC12 次序。
-- HLC03 技術授權可在 HLC04 派任前、派任中或任務改變時重跑；未授權工作不得因專案時程略過。
-- HLC06 試用只是 active 關係中的評估 module；沒有試用時不開啟 trial sub-type。
-- HLC08 只管理實際 change transaction；HLC11 overlay 不以 HLC08 假轉換表示。
-- HLC10 case 可與任何其他 module 並行，且不得因 relationship ended 自動結案。
-- HLC12 project release 後可以開啟新 HLC04、維持 Bench，或經獨立審查進入 HLC13／HLC14；不得直接改為 ended。
-- HLC13 與 HLC14 是不同 termination initiator／path；兩者共用 closeout work items，但不得合併法律事由。
+- HLC00→HLC01→HLC02→HLC03→HLC04 是一般入口導覽；是否需要每一頁及其 artifact 仍由 trigger selectors 決定。
+- `active` 後可依事件並行開啟 HLC05–HLC23；沒有固定 HLC05→HLC06→…→HLC23 次序。
+- HLC07 授權可在 HLC05 派任前、派任中或任務改變時重跑；HLC08 現場 gate 不得因專案時程略過。
+- HLC15 是可選 module；沒有有效試用約定時不開啟，也不得以「轉正」重設年資。
+- HLC09 只管理實際 change transaction；HLC21 overlay 不以 HLC09 假轉換表示。
+- HLC18–HLC20 case 可與任何 module 並行，且不得因 relationship ended 自動結案。
+- HLC23 project release 後可開啟新 HLC05、維持 Bench，或經獨立審查進入 HLC24–HLC26；不得直接改為 ended。
+- HLC24、HLC25 與 HLC26 是不同 initiator／path；共用 HLC27 services 不表示法律事由相同。
+- HLC27 closeout、HLC28 post-relationship obligations 與 HLC29 rehire 可在 relationship ended 後繼續或另行開啟。
 
 ## 7. Overlay Contract
 
@@ -205,7 +223,7 @@ transfer_reason:
 receiving_owner:
 ```
 
-HLC02、HLC11、HLC12、HLC13 與 HLC14 不使用單一完成布林值。closeout 項目至少涵蓋 final wage、severance／retirement、insurance、pension、tax、attendance、leave balance、expense、asset、account、physical access、handover、confidential data、service certificate、required reporting、injury continuity 及 retention classification。
+HLC04、HLC21、HLC22、HLC23 與 HLC27 不使用單一完成布林值。closeout 項目至少涵蓋 final wage、severance／retirement、insurance、pension、tax、attendance、leave balance、expense、asset、account、physical access、handover、confidential data、service certificate、required reporting、injury continuity 及 retention classification。
 
 ## 10. Start and Time Facts
 
@@ -228,19 +246,22 @@ HLC02、HLC11、HLC12、HLC13 與 HLC14 不使用單一完成布林值。closeou
 
 | Scenario | Expected Result |
 | --- | --- |
-| 直聘有／無試用 | 皆經 HLC00–02 進 active；有試用才開 HLC06 trial sub-type |
-| 並行派任、訓練與績效 | HLC04、HLC06、HLC09 同時 active，不互相覆蓋 |
+| 直聘有／無試用 | 皆依 HLC00–04 的適用 trigger 進 active；有有效試用約定才開 HLC15 |
+| 試用期間與 checkpoint | HLC15 分開合理期間決定、雙方附約、評估計畫與每個 checkpoint assessment |
+| 試用延長／不繼續 | 延長須在期限前另作 assessment 與 bilateral agreement；未通過只送 HLC25 review |
+| 並行派任、訓練與績效 | HLC05、HLC14、HLC17 同時 active，不互相覆蓋 |
 | 多專案資源衝突 | 每個工作包有 priority owner，跨案衝突升級 Resource Governance |
 | 技術否決 | 依授權與 basis 建 technical hold；不得變成人事處分或無依據插單 |
-| 專案結案 | HLC12 release；關係仍 active，可進 Bench 或新 HLC04 |
-| 重大調動 | HLC08 保存前後條件、不利益、員工意見、法律 gate 及新 assignment |
-| 留停／職災醫療 | HLC11 overlay，relationship state 維持 active；復職前 return clearance |
-| 客戶場所性騷擾／霸凌 | HLC10 獨立 case，檢查跨事業單位與外部路徑，不交被申訴管理線結案 |
+| 專案結案 | HLC23 release；關係仍 active，可進 Bench 或新 HLC05 |
+| 重大調動 | HLC09 保存前後條件、不利益、員工意見、法律 gate 及新 assignment |
+| 留停／職災醫療 | HLC21 overlay，relationship state 維持 active；HLC22 執行 return clearance |
+| 客戶場所性騷擾／霸凌 | HLC18–HLC20 獨立 case 路徑，不交被申訴管理線結案 |
 | 安全停工 | HSE route 優先；不得以交付成本壓過必要停止措施或進行報復 |
-| 自請離職 | HLC13→termination_pending→ended；closeout 各自完成 |
-| 資遣／解僱／退休 | HLC14 依不同 path、事由、保護、費用與通知建 evidence |
-| 離職後申訴／職災／legal hold | relationship ended，但 HLC10／post-employment work items 可持續 |
-| 再聘 | 建立新 workforce instance；既有事件、案件及 closeout history 不改寫 |
+| 自請離職 | HLC24→termination_pending→ended；HLC27 work items 各自完成 |
+| 資遣／解僱 | HLC25 依事由、保護、安置、通知與撤回建 evidence；HLC27 另行結清 |
+| 退休／合意終止 | HLC26 分開退休決定、雙方協議與各自生效事實 |
+| 離職後申訴／職災／legal hold | relationship ended，但 HLC18–HLC22／HLC28 可持續 |
+| 再聘 | HLC29 建立新 workforce instance；既有事件、案件及 closeout history 不改寫 |
 
 ## 12. Legal and Professional Boundary
 

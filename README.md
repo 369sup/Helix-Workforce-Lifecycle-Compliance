@@ -33,43 +33,58 @@
 ```
 
 - `relationship_state` 只表示 planning、candidate、offer_pending、pre_start、active、termination_pending 或 ended。
-- HLC00–HLC02 是一般入口導航。
-- HLC03–HLC12 是可並行、可重入的工作模組，不是單線階段。
-- HLC13 是自請離職路徑；HLC14 是資遣、解僱、退休及共同離場路徑。
+- HLC00–HLC04 是需求、招募、契約、clearance 與開始的一般入口導航。
+- HLC05–HLC23 是依事件開啟、可並行及重入的治理頁面，不是單線階段。
+- HLC24–HLC29 分開自請離職、雇主終止、退休／合意終止、結清、離職後事項與再聘。
 - `helix_assignment` 分別記錄 Employer、CoE、People、Delivery、Work Priority、Technical、Resource 與 HSE roles。
 - overlay 不取代 active relationship；case 不因離職自動結案。
 
 唯一 canonical 定義見 [Helix Workforce Lifecycle Model](docs/governance/models/workforce-lifecycle-model.md)，Helix 權責見 [Helix Organization Governance Model](docs/governance/models/organization-governance-model.md)。
 
-## 3. HLC00–HLC14
+## 3. HLC00–HLC29
 
 | ID | 模組 | 邊界 |
 | --- | --- | --- |
-| HLC00 | 人力規劃、職缺與招募 | 需求、關係初判、職務／危害／資格、甄選與候選資料 |
-| HLC01 | 錄取、契約與開始前條件 | Offer／協議版本、接受、clearance、取消或延後 |
-| HLC02 | 到職、Onboarding 與初始 Helix 配置 | 三類開始日期、名卡、保險、退休、權限、資產與 assignment |
-| HLC03 | 能力基線、公司職級與技術授權 | 能力、職級、資格與授權互不自動推導 |
-| HLC04 | 專案派任、配置與工地動員 | 角色、比例、priority owner、地點、工時、技術與安全 gate |
-| HLC05 | 在職交付、工時與日常工作指揮 | 工作包、出勤、加班、品質、技術、安全與資源衝突 |
-| HLC06 | 試用、績效、改善與申覆 | 雙軌輸入、單一結果；不得直接產生終止 |
-| HLC07 | 調薪、晉升、職級與職涯 | 校準、決定、通知／同意與生效日 |
-| HLC08 | 跨專案調動、借調及工作條件變更 | 前後條件、不利益、員工意見、法律與安全 gate |
-| HLC09 | 訓練、證照、續證與人才發展 | 訓練類型、費用、能力、資格、到期與服務年限 gate |
-| HLC10 | 職場事件、申訴、調查與紀律 | 性騷擾、霸凌、禁止報復、迴避、外部路徑與申復 |
-| HLC11 | 留停、職災醫療及其他暫停 overlay | active relationship 上的工資、保險、權限、聯絡與復職狀態 |
-| HLC12 | 專案結案、釋放、Bench 與再配置 | 專案結束不等於勞動契約終止 |
-| HLC13 | 自請離職 | 意思表示、最後工作日及平行 closeout |
-| HLC14 | 資遣、解僱、退休與共同離場 | 法定路徑審查、平行 closeout 與離職後義務 |
+| HLC00 | 人力需求與職位治理 | 需求、關係初判、職務、危害與資格 |
+| HLC01 | 招募、甄選與候選人結案 | 資料告知、評估、衝突與 disposition |
+| HLC02 | Offer 與契約成立 | 提案、回覆、契約與個別條款 |
+| HLC03 | 開始前法定與風險 Clearance | 各人口、資格、健康、site 與 data gate |
+| HLC04 | 實際開始與行政 Onboarding | 開始事實、申報、告知、資產與行政結案 |
+| HLC05 | Assignment 與角色治理 | Helix 八類角色、專案與決策權 |
+| HLC06 | 能力基線與公司職級 | 能力評估與職級決定 |
+| HLC07 | 技術授權生命週期 | 授予、暫停、撤銷與回復 |
+| HLC08 | 工地動員、危害與專案存取 | 現場、設備、permit 及客戶權限 gate |
+| HLC09 | 派任條件、調動與工作條件變更 | before／after、意見、合意、通知與重新 clearance |
+| HLC10 | 工時、出勤、請假與加班 | 計畫、申請、決定與實際工作事實 |
+| HLC11 | 工作排序與資源衝突 | 唯一 Priority Owner 與跨案升級 |
+| HLC12 | 技術交付控制 | review、query、deviation、hold 與 release |
+| HLC13 | 品質、HSE 檢查與事件 | 不符合、矯正、檢查、incident 與申報 |
+| HLC14 | 績效目標、評估與改善 | inputs、校準、結果、PIP、陳述與申覆 |
+| HLC15 | 試用約定、評估、延長與結果 | 選擇、合理期間、checkpoint、延長、通過與未通過 |
+| HLC16 | 晉升、職級、薪酬與職涯變動 | 評估、決定、通知或必要協議 |
+| HLC17 | 訓練、發展與資格證照 | 需求、費用、出勤、評量、續證與資格使用 |
+| HLC18 | 案件受理、分類與獨立路由 | intake、緊急風險、衝突與外部路徑 |
+| HLC19 | 調查、證據與暫時措施 | scope、訪談、evidence、recusal、措施與 findings |
+| HLC20 | 案件決定、申復與反報復 | 決定、通知、申復、追蹤與結案 |
+| HLC21 | 關係暫停 Overlay | 適用性、決定、狀態 work items 與複核 |
+| HLC22 | 復職、復工與狀態恢復 | 適能、調整、clearance、決定與通知 |
+| HLC23 | 專案釋放、Bench 與再配置 | release、交接、Bench review 與新配置 |
+| HLC24 | 自請離職表示與生效 | 意思表示、最後工作日、撤回與交接 |
+| HLC25 | 雇主終止審查與決定 | 保護期、法定事由、安置、決定、通知與撤回 |
+| HLC26 | 退休與合意終止 | ending path、退休決定、雙方協議與生效事實 |
+| HLC27 | 關係結清、申報與 Closeout | 各給付計算／付款、申報與營運待辦 |
+| HLC28 | 離職後請求、義務與保存 | 服務證明、競業、請求、retention 與 legal hold |
+| HLC29 | 再聘與新 Workforce Instance | 新關係評估及舊 instance 參照 |
 
 ## 4. 不變條件
 
 - 公司職級、專案角色及技術授權是三個獨立物件。
 - 每位職員在特定 assignment 只有一位日常 Work Priority Owner。
 - Offer 接受、契約成立、契約開始、實際工作及行政 onboarding 完成分開記錄。
-- 試用是 HLC06 的可選子型；已成立關係的法定權益不因試用降低。
-- HLC03–HLC12 不得被實作成固定直線流程。
-- 專案釋放先進 HLC12；Bench 維持 active，不得停薪、強迫請假或自動轉為 ended。
-- HLC10 case 可跨所有 relationship state，且須有衝突迴避、外部路徑與禁止報復控制。
+- 試用是 HLC15 的可選 module；未選擇即不產生試用文件，已成立關係的法定權益不因試用降低。
+- HLC05–HLC23 不得被實作成固定直線流程。
+- 專案釋放進 HLC23；Bench 維持 active，不得停薪、強迫請假或自動轉為 ended。
+- HLC18–HLC20 case 可跨所有 relationship state，且須有衝突迴避、外部路徑與禁止報復控制。
 - 關係終止與工資、保險、資產、權限、證明及資料處置的完成是不同事件。
 - 每個 closeout work item 只能是 `completed`、具理由的 `not-applicable`，或有 Owner／期限的 `transferred`。
 - 再聘建立新 workforce instance，既有 instance 維持不可改寫。
@@ -84,8 +99,8 @@
 | [Taiwan Workforce Law Source Catalog](docs/governance/legal/workforce-law-source-catalog.md) | 法源路由，不作個案適用結論 |
 | [Taiwan Workforce Legal Topic Matrix](docs/governance/legal/workforce-legal-topic-matrix.md) | HLC 與法律議題覆蓋，不取代逐條 evidence |
 | [Taiwan Workforce Legal Evidence Register](docs/governance/legal/workforce-legal-evidence-register.md) | 官方來源查證的獨立義務、狀態、觸發與 unresolved |
-| [Helix Workforce Artifact Catalog](docs/governance/assurance/workforce-artifact-catalog.md) | Candidate artifact 與簽署語意；不是正式模板 |
-| [HLC Module Packages](docs/modules/README.md) | HLC00–HLC14 各模組的必要文件、gate、owner、evidence 與輸出 |
+| [Helix Workforce Artifact Catalog](docs/governance/assurance/workforce-artifact-catalog.md) | Atomic Candidate artifact、execution 與 trigger；不是正式模板 |
+| [HLC Module Pages](docs/modules/README.md) | HLC00–HLC29 各頁面的邊界、Trigger Matrix、文件與 gate |
 
 法律 evidence 分 `current`、`future-effective`、`pending`，並分 `依法必須`、`公司政策選擇`、`個案待法律審查`。已公布不等於已施行；FAQ、新聞稿或行政指導只作明確標示的 guidance。
 
@@ -109,7 +124,7 @@ docs/governance/
 
 docs/modules/
 ├── README.md
-└── HLC00/ ... HLC14/
+└── HLC00/ ... HLC29/
 
 docs/enterprise/
 └── README.md
